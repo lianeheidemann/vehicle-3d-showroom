@@ -1,5 +1,18 @@
 # Vehicle 3D Showroom
 
+[![Deploy GitHub Pages](https://github.com/lianeheidemann/showroom-3d/actions/workflows/pages.yml/badge.svg)](https://github.com/lianeheidemann/showroom-3d/actions/workflows/pages.yml)
+[![GitHub Pages](https://img.shields.io/badge/demo-GitHub%20Pages-3b82f6?logo=github&logoColor=white)](https://lianeheidemann.github.io/showroom-3d/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![A-Frame](https://img.shields.io/badge/A--Frame-1.7-EF2D5E?logo=aframe&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-r173-000000?logo=threedotjs&logoColor=white)
+![WebGL](https://img.shields.io/badge/WebGL-990000?logo=webgl&logoColor=white)
+![Blender](https://img.shields.io/badge/Blender-GLB-F5792A?logo=blender&logoColor=white)
+
+**🔗 Demo:** https://lianeheidemann.github.io/showroom-3d/
+
 ## Sobre
 
 Aplicação web interativa para visualização tridimensional de veículos, permitindo navegar pelo catálogo, explorar modelos 3D e consultar informações dos veículos.
@@ -114,12 +127,19 @@ Alternativas: `npx serve`, ou a extensão *Live Server* do VS Code.
 
 ## GitHub Pages
 
-1. Envie o projeto para o repositório no GitHub (branch `main`).
-2. Acesse **Settings → Pages**.
-3. Em **Build and deployment**, escolha **Deploy from a branch**, branch `main`, pasta `/ (root)`.
-4. Salve. Em cerca de um minuto o site estará em `https://<usuario>.github.io/<repositorio>/`.
+O deploy é automático pelo workflow [.github/workflows/pages.yml](.github/workflows/pages.yml). A cada push na `main`, ele:
 
-Todos os caminhos do projeto são relativos, então o site funciona dentro do subdiretório do repositório. O arquivo `.nojekyll` desativa o processamento Jekyll.
+1. valida o `data/vehicles.json`;
+2. monta o site só com os arquivos publicados (`index.html`, `css/`, `js/`, `data/`, `assets/`);
+3. publica no GitHub Pages.
+
+O workflow também pode ser disparado manualmente em **Actions → Deploy GitHub Pages → Run workflow**.
+
+**Configuração única:** em **Settings → Pages → Build and deployment**, selecione **Source: GitHub Actions**. No plano gratuito do GitHub, o Pages exige repositório público.
+
+Site publicado: https://lianeheidemann.github.io/showroom-3d/
+
+Todos os caminhos do projeto são relativos, então o site funciona dentro do subdiretório do repositório.
 
 ## Como substituir os modelos provisórios
 
