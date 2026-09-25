@@ -1,0 +1,71 @@
+[
+  {
+    "id": "corolla-2024",
+    "brand": "Toyota",
+    "model": "Corolla",
+    "version": "XEI 2.0 Flex Automático",
+    "year": 2024,
+    "mileage": 12500,
+    "engine": "2.0 Flex",
+    "transmission": "Automático CVT",
+    "color": "Prata",
+    "colorHex": "#b9bec5",
+    "body": "Sedã",
+    "fuel": "Flex",
+    "price": 145000,
+    "model3d": "assets/models/corolla.glb",
+    "thumbnail": "assets/images/corolla.svg",
+    "gallery": [
+      { "label": "Frente", "image": "assets/images/views/front.svg" },
+      { "label": "Lateral", "image": "assets/images/views/side.svg" },
+      { "label": "Traseira", "image": "assets/images/views/rear.svg" },
+      { "label": "Interior", "image": "assets/images/views/interior.svg" }
+    ]
+  },
+  {
+    "id": "civic-2022",
+    "brand": "Honda",
+    "model": "Civic",
+    "version": "Touring 1.5 Turbo",
+    "year": 2022,
+    "mileage": 28400,
+    "engine": "1.5 Turbo",
+    "transmission": "Automático CVT",
+    "color": "Cinza Metálico",
+    "colorHex": "#6b7078",
+    "body": "Sedã",
+    "fuel": "Gasolina",
+    "price": 168900,
+    "model3d": "assets/models/civic.glb",
+    "thumbnail": "assets/images/civic.svg",
+    "gallery": [
+      { "label": "Frente", "image": "assets/images/views/front.svg" },
+      { "label": "Lateral", "image": "assets/images/views/side.svg" },
+      { "label": "Traseira", "image": "assets/images/views/rear.svg" },
+      { "label": "Interior", "image": "assets/images/views/interior.svg" }
+    ]
+  },
+  {
+    "id": "compass-2023",
+    "brand": "Jeep",
+    "model": "Compass",
+    "version": "Longitude T270 1.3 Turbo Flex",
+    "year": 2023,
+    "mileage": 19800,
+    "engine": "1.3 Turbo Flex",
+    "transmission": "Automático 6 marchas",
+    "color": "Vermelho Colorado",
+    "colorHex": "#8f1d22",
+    "body": "SUV",
+    "fuel": "Flex",
+    "price": 172500,
+    "model3d": "assets/models/compass.glb",
+    "thumbnail": "assets/images/compass.svg",
+    "gallery": [
+      { "label": "Frente", "image": "assets/images/views/front.svg" },
+      { "label": "Lateral", "image": "assets/images/views/side.svg" },
+      { "label": "Traseira", "image": "assets/images/views/rear.svg" },
+      { "label": "Interior", "image": "assets/images/views/interior.svg" }
+    ]
+  }
+]

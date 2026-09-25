@@ -1,0 +1,20 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Arquivos de trabalho do Blender (exporte apenas o .glb para assets/models/)
+*.blend1
+*.blend@
+
+# Dependências e logs de ferramentas locais (o projeto não exige nenhuma)
+node_modules/
+*.log
+
+# Variáveis de ambiente
+.env

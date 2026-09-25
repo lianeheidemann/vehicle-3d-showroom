@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180">
+  <!-- Thumbnail provisória: substitua por uma imagem real (.webp) renderizada do modelo no Blender. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1d23"/><stop offset="1" stop-color="#101216"/></linearGradient>
+    <linearGradient id="paint" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".18"/><stop offset="1" stop-color="#000000" stop-opacity=".25"/></linearGradient>
+  </defs>
+  <rect width="320" height="180" fill="url(#bg)"/>
+  <ellipse cx="160" cy="128" rx="150" ry="7" fill="#000" opacity=".5" transform="translate(0 22)"/>
+  <polygon points="223,85.2 181,52.8 43,52.8 34,84" fill="#0e1318" stroke="#2a3038" stroke-width="1"/>
+  <polygon points="28,126 292,126 295,105 286,90 220,84 34,82.8 25,105" fill="#8f1d22"/>
+  <polygon points="28,126 292,126 295,105 286,90 220,84 34,82.8 25,105" fill="url(#paint)"/>
+  <g fill="#0b0c0e" stroke="#3a4048" stroke-width="2">
+    <circle cx="81" cy="128" r="22"/><circle cx="239" cy="128" r="22"/>
+  </g>
+  <g fill="#9aa1ab"><circle cx="81" cy="128" r="12"/><circle cx="239" cy="128" r="12"/></g>
+</svg>

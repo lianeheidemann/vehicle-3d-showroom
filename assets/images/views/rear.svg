@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" width="160" height="100"><!-- Miniatura provisória: substitua por uma foto/render real da vista. --><rect width="160" height="100" fill="#14171b"/><g fill="none" stroke="#8b93a0" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+<path d="M44 70 V56 Q44 50 50 48 L58 34 Q60 30 66 30 H94 Q100 30 102 34 L110 48 Q116 50 116 56 V70 Z"/>
+<path d="M62 46 L67 36 H93 L98 46 Z"/>
+<path d="M48 70 v8 h10 v-8 M102 70 v8 h10 v-8"/>
+<rect x="70" y="58" width="20" height="7" rx="1.5"/>
+</g><g fill="#e5484d"><rect x="47" y="52" width="14" height="5" rx="2"/><rect x="99" y="52" width="14" height="5" rx="2"/></g></svg>
