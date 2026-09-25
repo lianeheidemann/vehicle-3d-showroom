@@ -1,5 +1,28 @@
 [
   {
+    "id": "concept-car-003",
+    "brand": "Concept",
+    "model": "Car 003",
+    "version": "Protótipo de demonstração",
+    "year": 2025,
+    "mileage": 0,
+    "engine": "Elétrico (conceito)",
+    "transmission": "Automático",
+    "color": "Grafite",
+    "colorHex": "#2b2e33",
+    "body": "Hatch",
+    "fuel": "Elétrico",
+    "price": 450000,
+    "model3d": "assets/models/concept-car-003.glb",
+    "thumbnail": "assets/images/concept-car-003.webp",
+    "gallery": [
+      { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
+      { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
+      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" },
+      { "label": "Interior", "view": "interior", "image": "assets/images/views/interior.svg" }
+    ]
+  },
+  {
     "id": "corolla-2024",
     "brand": "Toyota",
     "model": "Corolla",
@@ -16,10 +39,10 @@
     "model3d": "assets/models/corolla.glb",
     "thumbnail": "assets/images/corolla.svg",
     "gallery": [
-      { "label": "Frente", "image": "assets/images/views/front.svg" },
-      { "label": "Lateral", "image": "assets/images/views/side.svg" },
-      { "label": "Traseira", "image": "assets/images/views/rear.svg" },
-      { "label": "Interior", "image": "assets/images/views/interior.svg" }
+      { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
+      { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
+      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" },
+      { "label": "Interior", "view": "interior", "image": "assets/images/views/interior.svg" }
     ]
   },
   {
@@ -39,10 +62,10 @@
     "model3d": "assets/models/civic.glb",
     "thumbnail": "assets/images/civic.svg",
     "gallery": [
-      { "label": "Frente", "image": "assets/images/views/front.svg" },
-      { "label": "Lateral", "image": "assets/images/views/side.svg" },
-      { "label": "Traseira", "image": "assets/images/views/rear.svg" },
-      { "label": "Interior", "image": "assets/images/views/interior.svg" }
+      { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
+      { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
+      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" },
+      { "label": "Interior", "view": "interior", "image": "assets/images/views/interior.svg" }
     ]
   },
   {
@@ -62,10 +85,10 @@
     "model3d": "assets/models/compass.glb",
     "thumbnail": "assets/images/compass.svg",
     "gallery": [
-      { "label": "Frente", "image": "assets/images/views/front.svg" },
-      { "label": "Lateral", "image": "assets/images/views/side.svg" },
-      { "label": "Traseira", "image": "assets/images/views/rear.svg" },
-      { "label": "Interior", "image": "assets/images/views/interior.svg" }
+      { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
+      { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
+      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" },
+      { "label": "Interior", "view": "interior", "image": "assets/images/views/interior.svg" }
     ]
   }
 ]

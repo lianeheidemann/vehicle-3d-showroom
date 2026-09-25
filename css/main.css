@@ -125,12 +125,8 @@ svg {
 }
 
 .brand__mark {
-  width: 26px;
-  height: 26px;
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 1.8;
-  stroke-linejoin: round;
+  width: 32px;
+  height: 32px;
 }
 
 .topnav {
@@ -402,6 +398,7 @@ svg {
   color: var(--text-muted);
   font-size: 12px;
   cursor: pointer;
+  user-select: none;
   transition: border-color 0.15s, color 0.15s;
 }
 

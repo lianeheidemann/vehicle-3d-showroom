@@ -21,6 +21,13 @@ const DISTANCE_MAX = 5; // impede afastar demais
 // Em telas estreitas (retrato) a câmera recua proporcionalmente para o carro caber na largura.
 const REFERENCE_ASPECT = 1.2;
 
+// Vistas predefinidas (yaw do veículo). A frente do modelo aponta para +Z, em direção à câmera.
+const VIEW_YAWS = {
+  front: 0,
+  side: -Math.PI / 2,
+  rear: Math.PI,
+};
+
 const MESSAGES = {
   loading: 'Carregando modelo 3D…',
   error: 'Não foi possível carregar o modelo 3D.',
@@ -51,6 +58,70 @@ async function assetExists(url) {
   }
 }
 
+/**
+ * Caixa usada no enquadramento, ignorando o que não é o carro em si — comum em modelos
+ * convertidos (Sketchfab/FBX): peças soltas muito longe do conjunto e planos de sombra transparentes.
+ * Essas peças continuam sendo renderizadas; só não contam para centralizar e medir o modelo.
+ */
+function computeFramingBox(model) {
+  const parts = [];
+  model.traverse((object) => {
+    if (!object.isMesh || !object.visible) return;
+    const box = new THREE.Box3().setFromObject(object, true);
+    if (box.isEmpty()) return;
+    const size = box.getSize(new THREE.Vector3()).toArray();
+    const isFlatShadow = object.material?.transparent && Math.min(...size) <= Math.max(...size) * 0.001;
+    if (!isFlatShadow) parts.push({ box, center: box.getCenter(new THREE.Vector3()) });
+  });
+  if (parts.length === 0) return new THREE.Box3();
+
+  const quantile = (values, q) => values.slice().sort((a, b) => a - b)[Math.floor((values.length - 1) * q)];
+  const median = new THREE.Vector3(
+    quantile(parts.map((part) => part.center.x), 0.5),
+    quantile(parts.map((part) => part.center.y), 0.5),
+    quantile(parts.map((part) => part.center.z), 0.5)
+  );
+  const distances = parts.map((part) => part.center.distanceTo(median));
+  const limit = quantile(distances, 0.75) * 3;
+
+  const box = new THREE.Box3();
+  parts.forEach((part, index) => {
+    if (distances[index] <= limit) box.union(part.box);
+  });
+  const ignored = parts.length - parts.filter((_, index) => distances[index] <= limit).length;
+  if (ignored > 0) console.warn(`[viewer] ${ignored} peça(s) solta(s) longe do modelo ignoradas no enquadramento.`);
+  return box;
+}
+
+/**
+ * Ambiente de estúdio (reflexos) gerado em tempo real, sem arquivos HDR externos.
+ * Materiais PBR metálicos de GLBs reais ficam quase pretos sem um mapa de ambiente.
+ */
+function applyStudioEnvironment(sceneEl) {
+  const studio = new THREE.Scene();
+  const room = new THREE.Mesh(new THREE.BoxGeometry(24, 12, 24), new THREE.MeshBasicMaterial({ color: 0x15181d, side: THREE.BackSide }));
+  room.position.y = 5;
+  studio.add(room);
+
+  const softbox = (width, height, position, intensity) => {
+    const material = new THREE.MeshBasicMaterial({ color: new THREE.Color(1, 1, 1).multiplyScalar(intensity), side: THREE.DoubleSide });
+    const panel = new THREE.Mesh(new THREE.PlaneGeometry(width, height), material);
+    panel.position.set(...position);
+    panel.lookAt(0, 0.5, 0);
+    studio.add(panel);
+  };
+  softbox(14, 4, [0, 10.8, 0], 3); // teto
+  softbox(8, 4, [11.8, 4, 2], 1.6); // laterais
+  softbox(8, 4, [-11.8, 4, -2], 1.2);
+  softbox(10, 3, [0, 3, 11.8], 0.8); // frente
+  softbox(10, 3, [0, 3, -11.8], 0.5); // fundo
+
+  const pmrem = new THREE.PMREMGenerator(sceneEl.renderer);
+  sceneEl.object3D.environment = pmrem.fromScene(studio, 0.04).texture;
+  pmrem.dispose();
+  disposeObject3D(studio);
+}
+
 function disposeObject3D(root) {
   root.traverse((object) => {
     object.geometry?.dispose();
@@ -71,7 +142,7 @@ export class VehicleViewer {
 
     this.yaw = this.yawGoal = INITIAL_YAW;
     this.pitch = this.pitchGoal = DEFAULT_PITCH;
-    this.distance = this.distanceGoal = 7;
+    this.distance = this.distanceGoal = this.defaultDistance = 7;
     this.minDistance = 3;
     this.maxDistance = 11;
     this.target = new THREE.Vector3(0, 0.6, 0);
@@ -84,6 +155,7 @@ export class VehicleViewer {
     this.lookMatrix = new THREE.Matrix4();
 
     this.ready = whenSceneLoaded(sceneEl).then(() => {
+      applyStudioEnvironment(sceneEl);
       sceneEl.setAttribute('vehicle-viewer-tick', '');
       sceneEl.components['vehicle-viewer-tick'].viewer = this;
     });
@@ -102,6 +174,17 @@ export class VehicleViewer {
 
   zoom(factor) {
     this.distanceGoal = clamp(this.distanceGoal * factor, this.minDistance, this.maxDistance);
+  }
+
+  /** Gira até uma vista predefinida pelo caminho mais curto. Retorna false se a vista não existir. */
+  setView(view) {
+    const yaw = VIEW_YAWS[view];
+    if (yaw === undefined) return false;
+    const fullTurns = Math.round((this.yawGoal - yaw) / (Math.PI * 2));
+    this.yawGoal = yaw + fullTurns * Math.PI * 2;
+    this.pitchGoal = DEFAULT_PITCH;
+    this.distanceGoal = this.defaultDistance;
+    return true;
   }
 
   /** Carrega o modelo do veículo, descartando o anterior. Apenas um modelo fica na cena. */
@@ -167,7 +250,7 @@ export class VehicleViewer {
     root.rotation.y = 0;
     root.updateMatrixWorld(true);
 
-    let box = new THREE.Box3().setFromObject(model);
+    let box = computeFramingBox(model);
     if (box.isEmpty()) {
       console.warn('[viewer] Modelo sem geometria visível.');
       root.rotation.y = savedYaw;
@@ -180,7 +263,7 @@ export class VehicleViewer {
       console.warn(`[viewer] Escala suspeita (${largestSide.toFixed(2)} unidades). Reescalando para ~4,5 m.`);
       model.scale.multiplyScalar(4.5 / largestSide);
       model.updateMatrixWorld(true);
-      box = new THREE.Box3().setFromObject(model);
+      box = computeFramingBox(model);
     }
 
     const center = box.getCenter(new THREE.Vector3());
@@ -193,7 +276,7 @@ export class VehicleViewer {
     const radius = size.length() / 2;
     this.minDistance = radius * DISTANCE_MIN;
     this.maxDistance = radius * DISTANCE_MAX;
-    this.distanceGoal = radius * DISTANCE_DEFAULT;
+    this.distanceGoal = this.defaultDistance = radius * DISTANCE_DEFAULT;
     this.pitchGoal = DEFAULT_PITCH;
     this.targetGoal.set(0, size.y * 0.42, 0);
   }

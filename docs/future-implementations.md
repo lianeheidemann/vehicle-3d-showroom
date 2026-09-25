@@ -44,7 +44,7 @@ Posições: Frente, Traseira, Lateral esquerda, Lateral direita, Superior, Inter
 câmera atual → interpolação suave → nova posição
 ```
 
-*Ponto de partida:* as miniaturas (`gallery.js`) já têm estado ativo. Cada vista pode definir `{ yaw, pitch, distance }`, e o viewer já interpola esses valores (basta alterar `yawGoal`, `pitchGoal` e `distanceGoal`).
+*Já implementado:* Frente, Lateral e Traseira pelas miniaturas (`VehicleViewer.setView`, com interpolação suave pelo caminho mais curto). *Falta:* lateral esquerda/direita separadas, superior e interior.
 
 ## Fase 7: Personalização visual
 

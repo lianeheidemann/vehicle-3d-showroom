@@ -30,7 +30,9 @@ index.html
 | Carregar modelo | `HEAD` no `model3d`. Se o arquivo existe, usa `gltf-model`; se não, usa `createPlaceholderCar()` |
 | Um modelo por vez | `clearModel()` antes de cada carga; um token descarta cargas antigas que terminem fora de ordem |
 | Liberar memória | `disposeObject3D()` percorre o modelo e chama `dispose()` em geometrias, materiais e texturas |
-| Enquadramento | `Box3` do modelo: centraliza em X/Z, apoia no piso (Y = 0) e deriva as distâncias mín./padrão/máx. do raio |
+| Enquadramento | `Box3` do modelo: centraliza em X/Z, apoia no piso (Y = 0) e deriva as distâncias mín./padrão/máx. do raio. Peças soltas muito longe do conjunto e planos de sombra transparentes (comuns em exportações do Sketchfab) são ignorados na medição |
+| Iluminação | Luzes do A-Frame + mapa de ambiente de estúdio gerado com `PMREMGenerator` (reflexos para materiais PBR, sem arquivo HDR) |
+| Vistas | `setView('front' \| 'side' \| 'rear')` gira o veículo pelo caminho mais curto e restaura ângulo e distância padrão |
 | Rotação | O yaw gira o **veículo** (`#vehicle-root`); o pitch muda a elevação da câmera entre 3° e 40° |
 | Zoom | Distância da câmera limitada entre 1,3× e 5× o raio do modelo, então a câmera não entra no carro nem se afasta demais |
 | Telas estreitas | A distância é compensada pelo aspect ratio para o carro caber na largura |

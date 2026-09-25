@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/icon/logo-256.png" alt="Logo do Vehicle 3D Showroom" width="128">
+
 # Vehicle 3D Showroom
 
 Showroom 3D de veículos para a web: catálogo, visualizador GLB interativo e suporte a mouse, touch e gamepad.
@@ -94,6 +96,7 @@ docs/                    arquitetura, exportação Blender e próximas fases
 | Mouse: arrastar | Gira o veículo (horizontal) e ajusta levemente o ângulo (vertical) |
 | Mouse: scroll | Zoom, com distância mínima e máxima |
 | Mouse: clique no veículo | Raycast no modelo e destaque do painel de informações |
+| Miniaturas Frente / Lateral / Traseira | Giram a câmera suavemente até a vista escolhida |
 | Touch: um dedo | Gira |
 | Touch: pinça | Zoom |
 | Touch: toque no veículo | Destaque do painel |
@@ -166,6 +169,10 @@ Acrescente um objeto em `data/vehicles.json` com os mesmos campos (`id`, `brand`
 - O GLB só é baixado quando o veículo é selecionado.
 - Ao trocar de veículo, o modelo anterior sai da cena e suas geometrias, materiais e texturas são liberados da GPU. Só um modelo fica ativo por vez.
 
+## Créditos
+
+- **Concept Car 003** (`assets/models/concept-car-003.glb`): modelo "FREE Concept Car 003 — public domain (CC0)", de [Unity Fan](https://sketchfab.com/unityfan777), disponível no [Sketchfab](https://sketchfab.com/3d-models/free-concept-car-003-public-domain-cc0-77664fc474c444f4947e9834ed0d30ad).
+
 ## Licença
 
-[MIT](LICENSE)
+O código está sob a licença [MIT](LICENSE). Os modelos 3D de terceiros seguem as licenças indicadas em **Créditos**.

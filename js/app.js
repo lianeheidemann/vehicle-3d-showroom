@@ -16,6 +16,8 @@ const ACTION_MESSAGES = {
   visit: 'Demonstração: o agendamento de visitas será habilitado em uma próxima versão.',
 };
 
+const VIEW_UNAVAILABLE_MESSAGE = 'A vista interior será habilitada em uma próxima versão.';
+
 async function loadVehicles() {
   const response = await fetch(DATA_URL);
   if (!response.ok) throw new Error(`HTTP ${response.status} ao buscar ${DATA_URL}`);
@@ -41,7 +43,13 @@ async function main() {
   const info = createVehicleInfo(document.getElementById('vehicle-info'), {
     onAction: (action) => showToast(ACTION_MESSAGES[action] ?? 'Função disponível em breve.'),
   });
-  const gallery = createGallery(document.getElementById('gallery'));
+  const gallery = createGallery(document.getElementById('gallery'), {
+    onSelect: (view) => {
+      if (viewer.setView(view)) return true;
+      showToast(VIEW_UNAVAILABLE_MESSAGE);
+      return false;
+    },
+  });
 
   const viewer = new VehicleViewer({
     sceneEl: document.getElementById('scene'),
@@ -53,6 +61,7 @@ async function main() {
     onVehicleClick: () => info.highlight(),
   });
   viewer.bindInput(input);
+  input.on('rotate', () => gallery.clearActive());
 
   attachMouseInput(stageEl, input);
   attachTouchInput(stageEl, input);

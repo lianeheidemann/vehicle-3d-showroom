@@ -50,6 +50,15 @@ Salve em `assets/models/` com o nome definido em `model3d` no `data/vehicles.jso
 
 O A-Frame suporta Draco (configurando `gltf-model="dracoDecoderPath: ..."` no `<a-scene>`) e Meshopt. Ativar compressão exige configurar o decoder no `index.html`, e isso está planejado na Fase 17.
 
+## Problemas comuns em modelos baixados (ex.: Sketchfab)
+
+O `concept-car-003.glb` mostrou problemas típicos:
+
+- **Peças soltas fora do carro:** 23 objetos a até 270 m de distância. O viewer ignora essas peças no enquadramento, mas elas continuam sendo baixadas. Apague-as no Blender.
+- **Conversão FBX → glTF:** escalas encadeadas (0,01 × 100) e armature com skin em quase todas as peças, mesmo sem animação útil. Aplique as transformações e remova a armature se ela não for usada.
+- **Peso:** 38 MB e cerca de 800 mil triângulos, acima do orçamento sugerido. Use *Decimate* nas peças internas e invisíveis, e compressão (Fase 17).
+- **Plano de sombra transparente** (`ground_shadow`) de 8 m: pode ser removido, porque a cena já tem plataforma.
+
 ## Checklist rápido
 
 - [ ] Escala em metros e transformações aplicadas
