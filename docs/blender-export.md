@@ -54,7 +54,7 @@ O A-Frame suporta Draco (configurando `gltf-model="dracoDecoderPath: ..."` no `<
 
 O `concept-car-003.glb` mostrou problemas típicos:
 
-- **Peças soltas fora do carro:** 23 objetos a até 270 m de distância. O viewer ignora essas peças no enquadramento, mas elas continuam sendo baixadas. Apague-as no Blender.
+- **Peças soltas fora do carro:** 23 objetos (relógio do painel, telas etc.) a até 270 m de distância. O viewer detecta e oculta essas peças, mas elas continuam sendo baixadas. Apague-as ou reposicione-as no Blender.
 - **Conversão FBX → glTF:** escalas encadeadas (0,01 × 100) e armature com skin em quase todas as peças, mesmo sem animação útil. Aplique as transformações e remova a armature se ela não for usada.
 - **Peso:** 38 MB e cerca de 800 mil triângulos, acima do orçamento sugerido. Use *Decimate* nas peças internas e invisíveis, e compressão (Fase 17).
 - **Plano de sombra transparente** (`ground_shadow`) de 8 m: pode ser removido, porque a cena já tem plataforma.

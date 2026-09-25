@@ -61,7 +61,7 @@ async function assetExists(url) {
 /**
  * Caixa usada no enquadramento, ignorando o que não é o carro em si — comum em modelos
  * convertidos (Sketchfab/FBX): peças soltas muito longe do conjunto e planos de sombra transparentes.
- * Essas peças continuam sendo renderizadas; só não contam para centralizar e medir o modelo.
+ * As peças soltas também são ocultadas, para não aparecerem "voando" pela cena.
  */
 function computeFramingBox(model) {
   const parts = [];
@@ -71,7 +71,7 @@ function computeFramingBox(model) {
     if (box.isEmpty()) return;
     const size = box.getSize(new THREE.Vector3()).toArray();
     const isFlatShadow = object.material?.transparent && Math.min(...size) <= Math.max(...size) * 0.001;
-    if (!isFlatShadow) parts.push({ box, center: box.getCenter(new THREE.Vector3()) });
+    if (!isFlatShadow) parts.push({ object, box, center: box.getCenter(new THREE.Vector3()) });
   });
   if (parts.length === 0) return new THREE.Box3();
 
@@ -85,11 +85,18 @@ function computeFramingBox(model) {
   const limit = quantile(distances, 0.75) * 3;
 
   const box = new THREE.Box3();
+  const strayNames = [];
   parts.forEach((part, index) => {
-    if (distances[index] <= limit) box.union(part.box);
+    if (distances[index] <= limit) {
+      box.union(part.box);
+    } else {
+      part.object.visible = false;
+      strayNames.push(part.object.name || '(sem nome)');
+    }
   });
-  const ignored = parts.length - parts.filter((_, index) => distances[index] <= limit).length;
-  if (ignored > 0) console.warn(`[viewer] ${ignored} peça(s) solta(s) longe do modelo ignoradas no enquadramento.`);
+  if (strayNames.length > 0) {
+    console.warn(`[viewer] ${strayNames.length} peça(s) solta(s) longe do modelo foram ocultadas: ${strayNames.join(', ')}`);
+  }
   return box;
 }
 
