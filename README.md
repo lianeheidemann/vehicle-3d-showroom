@@ -1,17 +1,22 @@
+<div align="center">
+
 # Vehicle 3D Showroom
 
-[![Deploy GitHub Pages](https://github.com/lianeheidemann/showroom-3d/actions/workflows/pages.yml/badge.svg)](https://github.com/lianeheidemann/showroom-3d/actions/workflows/pages.yml)
-[![GitHub Pages](https://img.shields.io/badge/demo-GitHub%20Pages-3b82f6?logo=github&logoColor=white)](https://lianeheidemann.github.io/showroom-3d/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![A-Frame](https://img.shields.io/badge/A--Frame-1.7-EF2D5E?logo=aframe&logoColor=white)
-![Three.js](https://img.shields.io/badge/Three.js-r173-000000?logo=threedotjs&logoColor=white)
-![WebGL](https://img.shields.io/badge/WebGL-990000?logo=webgl&logoColor=white)
-![Blender](https://img.shields.io/badge/Blender-GLB-F5792A?logo=blender&logoColor=white)
+Showroom 3D de veículos para a web: catálogo, visualizador GLB interativo e suporte a mouse, touch e gamepad.
 
-**🔗 Demo:** https://lianeheidemann.github.io/showroom-3d/
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Abrir_showroom-3b82f6?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0d1117)](https://lianeheidemann.github.io/showroom-3d/)
+[![Deploy](https://img.shields.io/badge/Deploy-GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white&labelColor=0d1117)](https://github.com/lianeheidemann/showroom-3d/actions/workflows/pages.yml)
+[![License](https://img.shields.io/badge/License-MIT-3fb950?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=0d1117)](LICENSE)
+
+![HTML5](https://img.shields.io/badge/HTML5-161b22?style=for-the-badge&logo=html5&logoColor=E34F26)
+![CSS](https://img.shields.io/badge/CSS3-161b22?style=for-the-badge&logo=css&logoColor=1572B6)
+![JavaScript](https://img.shields.io/badge/JavaScript-161b22?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![A-Frame](https://img.shields.io/badge/A--Frame_1.7-161b22?style=for-the-badge&logo=aframe&logoColor=EF2D5E)
+![Three.js](https://img.shields.io/badge/Three.js-161b22?style=for-the-badge&logo=threedotjs&logoColor=white)
+![WebGL](https://img.shields.io/badge/WebGL-161b22?style=for-the-badge&logo=webgl&logoColor=D8303B)
+![Blender](https://img.shields.io/badge/Blender_%E2%86%92_GLB-161b22?style=for-the-badge&logo=blender&logoColor=F5792A)
+
+</div>
 
 ## Sobre
 
