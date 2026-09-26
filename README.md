@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/icon/logo-256.png" alt="Logo do Vehicle 3D Showroom" width="120">
+<img src="assets/icon/logo-readme.png" alt="Logo do Vehicle 3D Showroom" width="250">
 
 # Vehicle 3D Showroom
 
