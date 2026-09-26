@@ -13,10 +13,10 @@
 ![HTML5](https://img.shields.io/badge/HTML5-161b22?style=for-the-badge&logo=html5&logoColor=E34F26)
 ![CSS](https://img.shields.io/badge/CSS3-161b22?style=for-the-badge&logo=css&logoColor=1572B6)
 ![JavaScript](https://img.shields.io/badge/JavaScript-161b22?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![A-Frame](https://img.shields.io/badge/A--Frame_1.7-161b22?style=for-the-badge&logo=aframe&logoColor=EF2D5E)
+![A-Frame](https://img.shields.io/badge/A--Frame-161b22?style=for-the-badge&logo=aframe&logoColor=EF2D5E)
 ![Three.js](https://img.shields.io/badge/Three.js-161b22?style=for-the-badge&logo=threedotjs&logoColor=white)
 ![WebGL](https://img.shields.io/badge/WebGL-161b22?style=for-the-badge&logo=webgl&logoColor=D8303B)
-![Blender](https://img.shields.io/badge/Blender_%E2%86%92_GLB-161b22?style=for-the-badge&logo=blender&logoColor=F5792A)
+![Blender](https://img.shields.io/badge/Blender-161b22?style=for-the-badge&logo=blender&logoColor=F5792A)
 ![Controle Xbox](https://img.shields.io/badge/Controle_Xbox-compat%C3%ADvel-161b22?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iIzEwN0MxMCIgZD0iTTcgN2gxMGE1IDUgMCAwIDEgNC45IDRsLjkgNC42YTIuNiAyLjYgMCAwIDEtNC41IDIuM0wxNi40IDE2SDcuNmwtMS45IDEuOWEyLjYgMi42IDAgMCAxLTQuNS0yLjNsLjktNC42QTUgNSAwIDAgMSA3IDd6bTAgM3YxLjVINS41VjEzSDd2MS41aDEuNVYxM0gxMHYtMS41SDguNVYxMHptOS41IDBhMSAxIDAgMSAwIDAgMiAxIDEgMCAwIDAgMC0yem0tMiAyYTEgMSAwIDEgMCAwIDIgMSAxIDAgMCAwIDAtMnoiLz48L3N2Zz4%3D)
 
 <img src="docs/images/preview-2026-09.webp" alt="Tela do Vehicle 3D Showroom" width="100%">
