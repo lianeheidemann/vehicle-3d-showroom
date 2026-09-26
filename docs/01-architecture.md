@@ -70,7 +70,7 @@ Gamepad ───┘
 ```
 
 - As fontes de entrada não conhecem o viewer, só chamam o `InputManager`.
-- `zoom` é multiplicativo (`< 1` aproxima), o que deixa scroll, pinça, gatilhos e teclado consistentes.
+- `zoom` é multiplicativo (`< 1` aproxima), o que deixa scroll, pinça, botões L/R do controle e teclado consistentes.
 - O mouse usa Pointer Events e ignora `pointerType === 'touch'`, que fica com o `touch-input.js`, então não há eventos duplicados.
 - Clique e toque só viram `select` se o ponteiro se mover menos de ~6–10 px. Acima disso é arrasto.
 - O gamepad só roda o loop `requestAnimationFrame` enquanto há controle conectado.

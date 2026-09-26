@@ -2,7 +2,7 @@
 
 Evoluções planejadas, organizadas por fase.
 
-**Já implementado (Fase 1 e partes das fases 6 e 8):** catálogo via JSON; viewer A-Frame com carga sob demanda, descarte de modelos, enquadramento automático (inclusive para modelos com peças soltas) e iluminação de estúdio; vistas Frente / Lateral / Traseira; Input Manager (`rotate` / `zoom` / `select`) com mouse, touch, teclado e gamepad (analógico, setas e gatilhos, via InputMapper); raycasting no modelo; indicador de controle conectado.
+**Já implementado (Fase 1 e partes das fases 6 e 8):** catálogo via JSON; viewer A-Frame com carga sob demanda, descarte de modelos, enquadramento automático (inclusive para modelos com peças soltas) e iluminação de estúdio; vistas Frente / Lateral / Traseira; Input Manager (`rotate` / `zoom` / `select`) com mouse, touch, teclado e gamepad (analógico, setas e botões L/R para zoom, via InputMapper); raycasting no modelo; indicador de controle conectado.
 
 ---
 
@@ -56,7 +56,7 @@ Seletor de cor (Branco, Preto, Prata, Azul, Vermelho) trocando o material da car
 |---|---|
 | Analógico esquerdo | Rotação |
 | Analógico direito | Câmera |
-| RT / LT | Zoom + / − |
+| R / L (ou RT / LT) | Zoom + / − (já implementado) |
 | A | Selecionar / abrir informações |
 | B | Fechar / voltar |
 | Y | Resetar câmera |

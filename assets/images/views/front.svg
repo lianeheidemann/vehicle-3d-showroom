@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" width="160" height="100"><!-- Miniatura provisória: substitua por uma foto/render real da vista. --><rect width="160" height="100" fill="#14171b"/><g fill="none" stroke="#8b93a0" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
-<path d="M44 70 V56 Q44 50 50 48 L58 34 Q60 30 66 30 H94 Q100 30 102 34 L110 48 Q116 50 116 56 V70 Z"/>
-<path d="M60 47 L66 36 H94 L100 47 Z"/>
-<path d="M48 70 v8 h10 v-8 M102 70 v8 h10 v-8"/>
-<path d="M68 62 H92"/>
-</g><g fill="#3b82f6"><rect x="49" y="54" width="12" height="5" rx="2"/><rect x="99" y="54" width="12" height="5" rx="2"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" width="160" height="100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Ícone "Frente" — traço único, fundo transparente -->
+  <path d="M50 70 V60 Q50 54 56 52 L62 40 Q64 36 69 36 H91 Q96 36 98 40 L104 52 Q110 54 110 60 V70 Z" stroke="#9aa3ae" stroke-width="2.2"/>
+  <path d="M60 52 H100 M54 70 V75 H62 V70 M98 70 V75 H106 V70" stroke="#9aa3ae" stroke-width="2.2"/>
+  <path d="M55 59.5 H63 M97 59.5 H105" stroke="#3b82f6" stroke-width="3"/>
+</svg>

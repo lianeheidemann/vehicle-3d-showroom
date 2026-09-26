@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" width="760" height="390" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <!-- Botões do controle Xbox usados no showroom (mapeamento "standard" da Gamepad API, via InputMapper).
+       Azul = usado · Cinza = sem função. Mantenha em sincronia com js/input/gamepad-input.js. -->
+  <rect width="760" height="390" rx="14" fill="#0d1117" stroke="#23272e"/>
+
+  <text x="380" y="36" text-anchor="middle" font-size="17" font-weight="600" fill="#e7e9ec">Controle Xbox · via InputMapper</text>
+  <text x="380" y="56" text-anchor="middle" font-size="12.5" fill="#8a919b">Botões em azul têm função no showroom</text>
+
+  <!-- gatilhos (LT / RT) -->
+  <g stroke-width="2">
+    <rect x="240" y="84" width="72" height="26" rx="11" fill="#3b82f6" fill-opacity=".25" stroke="#3b82f6"/>
+    <rect x="448" y="84" width="72" height="26" rx="11" fill="#3b82f6" fill-opacity=".25" stroke="#3b82f6"/>
+  </g>
+  <g font-size="12" font-weight="700" fill="#e7e9ec" text-anchor="middle">
+    <text x="276" y="101">LT</text>
+    <text x="484" y="101">RT</text>
+  </g>
+
+  <!-- corpo do controle -->
+  <path d="M260 120 C290 105 470 105 500 120 C540 130 565 160 575 205 C588 262 580 300 550 305 C525 309 510 290 492 262 C480 245 465 238 450 238 L310 238 C295 238 280 245 268 262 C250 290 235 309 210 305 C180 300 172 262 185 205 C195 160 220 130 260 120 Z"
+        fill="#1a1e24" stroke="#9aa3ae" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- bumpers L (LB) / R (RB): zoom -->
+  <g fill="#3b82f6" fill-opacity=".35" stroke="#3b82f6" stroke-width="2">
+    <rect x="244" y="109" width="66" height="10" rx="5"/>
+    <rect x="450" y="109" width="66" height="10" rx="5"/>
+  </g>
+
+  <!-- analógico esquerdo (usado) -->
+  <circle cx="275" cy="165" r="24" fill="#3b82f6" fill-opacity=".25" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="275" cy="165" r="14" fill="#1a1e24" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- D-pad: ← → usados, ↑ ↓ sem função -->
+  <rect x="323" y="197" width="14" height="36" rx="3" fill="#14171b" stroke="#3a4048" stroke-width="1.5"/>
+  <rect x="312" y="208" width="36" height="14" rx="3" fill="#3b82f6" fill-opacity=".25" stroke="#3b82f6" stroke-width="2"/>
+  <g fill="#e7e9ec">
+    <path d="M315 215 L321 211 L321 219 Z"/>
+    <path d="M345 215 L339 211 L339 219 Z"/>
+  </g>
+
+  <!-- analógico direito, botões centrais e ABXY (sem função) -->
+  <g fill="#14171b" stroke="#3a4048" stroke-width="1.5">
+    <circle cx="430" cy="215" r="20"/>
+    <circle cx="430" cy="215" r="11"/>
+    <circle cx="380" cy="140" r="13"/>
+    <circle cx="350" cy="168" r="6"/>
+    <circle cx="410" cy="168" r="6"/>
+    <circle cx="485" cy="145" r="10"/>
+    <circle cx="485" cy="185" r="10"/>
+    <circle cx="465" cy="165" r="10"/>
+    <circle cx="505" cy="165" r="10"/>
+  </g>
+  <g font-size="10" font-weight="700" fill="#5d636c" text-anchor="middle">
+    <text x="485" y="149">Y</text>
+    <text x="485" y="189">A</text>
+    <text x="465" y="169">X</text>
+    <text x="505" y="169">B</text>
+  </g>
+
+  <!-- linhas de chamada -->
+  <g fill="none" stroke="#3b82f6" stroke-width="1.5">
+    <path d="M168 78 H226 L250 112"/>
+    <path d="M168 165 H249"/>
+    <path d="M168 256 H258 L312 218"/>
+    <path d="M592 78 H534 L510 112"/>
+  </g>
+  <g fill="#3b82f6">
+    <circle cx="250" cy="112" r="3"/>
+    <circle cx="249" cy="165" r="3"/>
+    <circle cx="312" cy="218" r="3"/>
+    <circle cx="510" cy="112" r="3"/>
+  </g>
+  <path d="M592 256 H540 L513 180" fill="none" stroke="#3a4048" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <!-- legendas -->
+  <g font-size="14" font-weight="600" fill="#e7e9ec">
+    <text x="24" y="74">L (LB)</text>
+    <text x="24" y="161">Analógico esquerdo</text>
+    <text x="24" y="252">Setas ← →</text>
+    <text x="736" y="74" text-anchor="end">R (RB)</text>
+    <text x="736" y="252" text-anchor="end" fill="#8a919b">Demais botões</text>
+  </g>
+  <g font-size="12.5" fill="#8a919b">
+    <text x="24" y="92">Afastar (zoom −)</text>
+    <text x="24" y="108">LT também funciona</text>
+    <text x="24" y="179">Girar o carro e</text>
+    <text x="24" y="195">ajustar o ângulo vertical</text>
+    <text x="24" y="270">Girar para a esquerda</text>
+    <text x="24" y="286">ou para a direita</text>
+    <text x="736" y="92" text-anchor="end">Aproximar (zoom +)</text>
+    <text x="736" y="108" text-anchor="end">RT também funciona</text>
+    <text x="736" y="270" text-anchor="end">Sem função por enquanto</text>
+  </g>
+
+  <!-- legenda de cores -->
+  <g font-size="12" fill="#8a919b">
+    <rect x="268" y="350" width="14" height="14" rx="3" fill="#3b82f6" fill-opacity=".25" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="290" y="361">Usado no showroom</text>
+    <rect x="420" y="350" width="14" height="14" rx="3" fill="#14171b" stroke="#3a4048" stroke-width="1.5"/>
+    <text x="442" y="361">Sem função</text>
+  </g>
+</svg>

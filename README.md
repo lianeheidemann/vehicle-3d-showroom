@@ -17,6 +17,7 @@
 ![Three.js](https://img.shields.io/badge/Three.js-161b22?style=for-the-badge&logo=threedotjs&logoColor=white)
 ![WebGL](https://img.shields.io/badge/WebGL-161b22?style=for-the-badge&logo=webgl&logoColor=D8303B)
 ![Blender](https://img.shields.io/badge/Blender_%E2%86%92_GLB-161b22?style=for-the-badge&logo=blender&logoColor=F5792A)
+![Controle Xbox](https://img.shields.io/badge/Controle_Xbox-compat%C3%ADvel-161b22?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iIzEwN0MxMCIgZD0iTTcgN2gxMGE1IDUgMCAwIDEgNC45IDRsLjkgNC42YTIuNiAyLjYgMCAwIDEtNC41IDIuM0wxNi40IDE2SDcuNmwtMS45IDEuOWEyLjYgMi42IDAgMCAxLTQuNS0yLjNsLjktNC42QTUgNSAwIDAgMSA3IDd6bTAgM3YxLjVINS41VjEzSDd2MS41aDEuNVYxM0gxMHYtMS41SDguNVYxMHptOS41IDBhMSAxIDAgMSAwIDAgMiAxIDEgMCAwIDAgMC0yem0tMiAyYTEgMSAwIDEgMCAwIDIgMSAxIDAgMCAwIDAtMnoiLz48L3N2Zz4%3D)
 
 <img src="docs/images/preview-2026-09.webp" alt="Tela do Vehicle 3D Showroom" width="100%">
 
@@ -28,7 +29,7 @@ Catálogo de veículos com visualizador 3D interativo: o cliente escolhe um carr
 
 - Modelos **GLB/glTF** carregados sob demanda, com enquadramento automático e iluminação de estúdio
 - Vistas **Frente / Lateral / Traseira**, zoom com limites e clique no veículo
-- Mouse, touch, teclado e **gamepad** (via InputMapper)
+- Mouse, touch, teclado e **controle de Xbox** (com fio, Bluetooth ou emulado pelo InputMapper)
 - Catálogo em um único [`data/vehicles.json`](data/vehicles.json)
 
 > [!NOTE]
@@ -48,12 +49,16 @@ O deploy é automático: cada push na `main` publica no [GitHub Pages](https://l
 
 ## Controles
 
-| Ação | Mouse | Touch | Teclado | Gamepad |
+Compatível com **controle de Xbox** (Xbox One, Series X|S e Xbox 360) e com qualquer controle que o Windows reconheça como Xbox, como os emulados pelo InputMapper.
+
+| Ação | Mouse | Touch | Teclado | Controle Xbox |
 |---|---|---|---|---|
 | Girar | Arrastar | Um dedo | `←` `→` | Setas `←` `→` ou analógico esquerdo |
 | Ângulo vertical | Arrastar na vertical | Um dedo | `↑` `↓` | Analógico esquerdo |
-| Zoom | Scroll | Pinça | `+` `-` | RT / LT |
+| Zoom | Scroll | Pinça | `+` `-` | R / L (ou RT / LT) |
 | Detalhes | Clique no carro | Toque no carro | — | — |
+
+<p align="center"><img src="docs/images/xbox-controls.svg" alt="Botões do controle Xbox usados no showroom: L afasta e R aproxima (LT e RT também), analógico esquerdo gira e ajusta o ângulo, setas esquerda e direita giram o carro" width="640"></p>
 
 **InputMapper:** ative a emulação de *Xbox 360 Controller* e pressione um botão com a página em foco para o navegador reconhecer o controle.
 
