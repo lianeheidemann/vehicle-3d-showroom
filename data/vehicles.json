@@ -17,8 +17,7 @@
     "gallery": [
       { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
       { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
-      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" },
-      { "label": "Interior", "view": "interior", "image": "assets/images/views/interior.svg" }
+      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" }
     ]
   },
   {
@@ -39,8 +38,7 @@
     "gallery": [
       { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
       { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
-      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" },
-      { "label": "Interior", "view": "interior", "image": "assets/images/views/interior.svg" }
+      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" }
     ]
   },
   {
@@ -61,8 +59,7 @@
     "gallery": [
       { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
       { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
-      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" },
-      { "label": "Interior", "view": "interior", "image": "assets/images/views/interior.svg" }
+      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" }
     ]
   },
   {
@@ -83,8 +80,7 @@
     "gallery": [
       { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
       { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
-      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" },
-      { "label": "Interior", "view": "interior", "image": "assets/images/views/interior.svg" }
+      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" }
     ]
   }
 ]

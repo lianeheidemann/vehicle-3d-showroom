@@ -1,7 +1,6 @@
 /**
- * Miniaturas de vistas (frente, lateral, traseira, interior) abaixo do visualizador.
- * Ao clicar, avisa `onSelect(view)`; a vista só fica marcada se `onSelect` retornar true
- * (ex.: "interior" ainda não tem câmera própria).
+ * Miniaturas de vistas (frente, lateral, traseira) abaixo do visualizador.
+ * Ao clicar, avisa `onSelect(view)`; a vista só fica marcada se `onSelect` retornar true.
  */
 export function createGallery(containerEl, { onSelect = () => true } = {}) {
   let buttons = [];

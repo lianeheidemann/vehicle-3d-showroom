@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" width="160" height="100"><!-- Miniatura provisória: substitua por uma foto/render real da vista. --><rect width="160" height="100" fill="#14171b"/><g fill="none" stroke="#8b93a0" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
-<path d="M20 30 Q80 18 140 30"/>
-<circle cx="62" cy="62" r="20"/><circle cx="62" cy="62" r="5"/>
-<path d="M42 62 H57 M67 62 H82 M62 67 V82"/>
-</g><rect x="96" y="44" width="36" height="22" rx="3" fill="#0e1a2e" stroke="#3b82f6" stroke-width="2"/><path d="M102 52 H126 M102 58 H118" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/></svg>

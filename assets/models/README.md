@@ -2,8 +2,9 @@
 
 Coloque aqui os arquivos `.glb` exportados do Blender, com os nomes usados em `data/vehicles.json`:
 
-- `corolla.glb`
-- `civic.glb`
-- `compass.glb`
+| Arquivo | Situação |
+|---|---|
+| `concept-car-003.glb` | Modelo real (Sketchfab, CC0) |
+| `corolla.glb`, `civic.glb`, `compass.glb` | Ainda não existem: o site exibe um carro provisório |
 
-Enquanto um arquivo não existir, o site exibe um carro provisório. Veja [docs/blender-export.md](../../docs/blender-export.md).
+Enquanto um arquivo não existir, o site exibe um carro provisório no lugar. Veja o [guia de modelos 3D](../../docs/02-3d-models-guide.md).

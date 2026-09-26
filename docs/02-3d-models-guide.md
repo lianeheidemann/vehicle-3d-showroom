@@ -9,8 +9,6 @@ Escolher o modelo → Importar no Blender → Limpar → Escala e orientação �
 → Materiais → Otimizar → Exportar GLB → Salvar no projeto → Registrar no JSON → Testar → Publicar
 ```
 
-> O [blender-export.md](blender-export.md) detalha as opções da janela de exportação. Este guia cobre o processo inteiro.
-
 ---
 
 ## 1. Escolher o modelo
@@ -32,7 +30,7 @@ Anote a URL, o autor e a licença. Você vai precisar deles na [etapa 12](#12-pu
 Os arquivos-fonte **não vão para o repositório**, só o `.glb` final:
 
 ```text
-Fora do repositório (ex.: Documentos/showroom-3d-fontes/)
+Fora do repositório (ex.: Documentos/vehicle-3d-showroom-fontes/)
 └── concept-car-003/
     ├── original/                  # download original, intocado
     ├── concept-car-003.blend      # arquivo de trabalho
@@ -147,19 +145,21 @@ Compare os triângulos com o valor anotado na etapa 3.
 
 ## 9. Exportar o GLB
 
-*File → Export → glTF 2.0 (.glb/.gltf)*. As opções essenciais (detalhes em [blender-export.md](blender-export.md)):
+*File → Export → glTF 2.0 (.glb/.gltf)*, com estas opções:
 
 | Opção | Valor |
 |---|---|
 | Format | **glTF Binary (.glb)** |
 | Include → Limit to | **Visible Objects** |
 | Transform | **+Y Up** marcado |
-| Mesh | **Apply Modifiers** marcado |
+| Mesh | **Apply Modifiers**, **UVs** e **Normals** marcados |
 | Material | Export |
 | Animation | Desmarcado (a menos que use animações) |
-| Compression | Desmarcado (o site ainda não tem decodificador Draco) |
+| Compression | Desmarcado (veja abaixo) |
 
 Salve direto na pasta do projeto, conforme a etapa seguinte.
+
+> **Compressão Draco/Meshopt:** reduz bastante o tamanho do `.glb`, mas o site ainda não carrega o decodificador. Para ativar, é preciso configurar `gltf-model="dracoDecoderPath: ..."` no `<a-scene>` do `index.html` (planejado na Fase 17 do roadmap). Até lá, exporte sem compressão.
 
 ## 10. Salvar no projeto e registrar
 
@@ -199,8 +199,7 @@ Adicione um item em `data/vehicles.json`. A ordem no arquivo é a ordem na tela,
   "gallery": [
     { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
     { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
-    { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" },
-    { "label": "Interior", "view": "interior", "image": "assets/images/views/interior.svg" }
+    { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" }
   ]
 }
 ```

@@ -6,8 +6,8 @@
 
 **Showroom automotivo 3D para a web: explore, gire e aproxime veículos direto no navegador.**
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Abrir_showroom-3b82f6?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0d1117)](https://lianeheidemann.github.io/showroom-3d/)
-[![Deploy](https://img.shields.io/badge/Deploy-GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white&labelColor=0d1117)](https://github.com/lianeheidemann/showroom-3d/actions/workflows/pages.yml)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Abrir_showroom-3b82f6?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0d1117)](https://lianeheidemann.github.io/vehicle-3d-showroom/)
+[![Deploy](https://img.shields.io/badge/Deploy-GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white&labelColor=0d1117)](https://github.com/lianeheidemann/vehicle-3d-showroom/actions/workflows/pages.yml)
 [![License](https://img.shields.io/badge/License-MIT-3fb950?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=0d1117)](LICENSE)
 
 ![HTML5](https://img.shields.io/badge/HTML5-161b22?style=for-the-badge&logo=html5&logoColor=E34F26)
@@ -37,14 +37,14 @@ Catálogo de veículos com visualizador 3D interativo: o cliente escolhe um carr
 ## Executar
 
 ```bash
-git clone https://github.com/lianeheidemann/showroom-3d.git
-cd showroom-3d
+git clone https://github.com/lianeheidemann/vehicle-3d-showroom.git
+cd vehicle-3d-showroom
 python -m http.server 8000
 ```
 
 Acesse **http://localhost:8000**. Não abra o `index.html` direto pelo arquivo (`file://`), porque o navegador bloqueia o carregamento do catálogo.
 
-O deploy é automático: cada push na `main` publica no [GitHub Pages](https://lianeheidemann.github.io/showroom-3d/).
+O deploy é automático: cada push na `main` publica no [GitHub Pages](https://lianeheidemann.github.io/vehicle-3d-showroom/).
 
 ## Controles
 
@@ -74,10 +74,9 @@ js/
 
 | Documento | Conteúdo |
 |---|---|
-| [Arquitetura](docs/architecture.md) | Módulos, dependências e decisões técnicas |
-| [Guia de modelos 3D](docs/3d-models-guide.md) | Como tratar, salvar e publicar modelos no Blender |
-| [Exportação Blender](docs/blender-export.md) | Opções da exportação GLB |
-| [Roadmap](docs/future-implementations.md) | Próximas fases |
+| [Arquitetura](docs/01-architecture.md) | Módulos, dependências e decisões técnicas |
+| [Guia de modelos 3D](docs/02-3d-models-guide.md) | Como tratar, salvar e publicar modelos no Blender |
+| [Roadmap](docs/03-roadmap.md) | Próximas fases |
 
 ## Créditos e licença
 

@@ -16,10 +16,9 @@ import { createVehicleInfo } from './ui/vehicle-info.js';
 import { VehicleViewer } from './viewer/vehicle-viewer.js';
 
 const ACTION_MESSAGES = {
-  interest: 'Demonstração: o contato com a loja será habilitado em uma próxima versão.',
-  visit: 'Demonstração: o agendamento de visitas será habilitado em uma próxima versão.',
+  details: 'Demonstração: mais detalhes do veículo serão exibidos em uma próxima versão.',
+  contact: 'Demonstração: o contato com a loja será habilitado em uma próxima versão.',
 };
-const VIEW_UNAVAILABLE_MESSAGE = 'A vista interior será habilitada em uma próxima versão.';
 
 const byId = (id) => document.getElementById(id);
 
@@ -59,13 +58,7 @@ async function main() {
     onAction: (action) => showToast(ACTION_MESSAGES[action] ?? 'Função disponível em breve.'),
   });
   const viewer = createViewer({ onVehicleClick: () => info.highlight() });
-  const gallery = createGallery(byId('gallery'), {
-    onSelect: (view) => {
-      if (viewer.setView(view)) return true;
-      showToast(VIEW_UNAVAILABLE_MESSAGE);
-      return false;
-    },
-  });
+  const gallery = createGallery(byId('gallery'), { onSelect: (view) => viewer.setView(view) });
   const catalog = createCatalog(byId('vehicle-list'), byId('catalog-count'), { onSelect: selectVehicle });
 
   viewer.bindInput(input);

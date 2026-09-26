@@ -1,8 +1,8 @@
 # Próximas implementações
 
-Evoluções planejadas, organizadas por fase. Nada disto faz parte do MVP.
+Evoluções planejadas, organizadas por fase.
 
-**Base já existente no MVP:** catálogo via JSON, viewer A-Frame com carga sob demanda e descarte de modelos, Input Manager (`rotate` / `zoom` / `select`), raycasting no modelo e leitura inicial da Gamepad API.
+**Já implementado (Fase 1 e partes das fases 6 e 8):** catálogo via JSON; viewer A-Frame com carga sob demanda, descarte de modelos, enquadramento automático (inclusive para modelos com peças soltas) e iluminação de estúdio; vistas Frente / Lateral / Traseira; Input Manager (`rotate` / `zoom` / `select`) com mouse, touch, teclado e gamepad (analógico, setas e gatilhos, via InputMapper); raycasting no modelo; indicador de controle conectado.
 
 ---
 
@@ -62,7 +62,7 @@ Seletor de cor (Branco, Preto, Prata, Azul, Vermelho) trocando o material da car
 | Y | Resetar câmera |
 | X | Alternar exterior/interior |
 
-Indicador "🎮 Controle conectado", mostrando o nome (ex.: *Xbox Controller*, *InputMapper (Xbox 360 Controller emulado)*) quando a Gamepad API informar. O MVP já mostra um status simples na barra inferior.
+*Já implementado:* indicador na barra inferior com bolinha verde e "Conectado" quando um controle é detectado. O nome informado pela Gamepad API (ex.: *Xbox 360 Controller* emulado pelo InputMapper) aparece ao passar o mouse. *Falta:* ícone de controle e exibir o nome diretamente.
 
 ## Fase 9: Busca e filtros
 
@@ -88,11 +88,11 @@ URLs diretas por veículo:
 
 ## Fase 13: Contato
 
-Integrar "Tenho interesse" com WhatsApp, formulário, e-mail ou CRM.
+Integrar o botão **Contato** (hoje só exibe um aviso de demonstração) com WhatsApp, formulário, e-mail ou CRM.
 
 ## Fase 14: Agendamento
 
-"Agendar visita" com data, horário, veículo, nome, telefone e e-mail. Requer backend ou serviço externo.
+Agendamento de visita (por exemplo, a partir do botão **Contato**) com data, horário, veículo, nome, telefone e e-mail. Requer backend ou serviço externo.
 
 ## Fase 15: Painel administrativo
 
