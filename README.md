@@ -56,7 +56,7 @@ Compatível com **controle de Xbox** (Xbox One, Series X|S e Xbox 360) e com qua
 | Girar | Arrastar | Um dedo | `←` `→` | Setas `←` `→` ou analógico esquerdo |
 | Ângulo vertical | Arrastar na vertical | Um dedo | `↑` `↓` | Analógico esquerdo |
 | Zoom | Scroll | Pinça | `+` `-` | R / L (ou RT / LT) |
-| Detalhes | Clique no carro | Toque no carro | — | — |
+| Detalhes | — | — | — | — |
 
 <p align="center"><img src="docs/images/xbox-controls.svg" alt="Botões do controle Xbox usados no showroom: L afasta e R aproxima (LT e RT também), analógico esquerdo gira e ajusta o ângulo, setas esquerda e direita giram o carro" width="640"></p>
 
