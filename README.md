@@ -2,7 +2,7 @@
 
 # Vehicle 3D Showroom
 
-**Showroom automotivo 3D para a web: explore,<br>gire e aproxime veículos direto no navegador.**
+**Showroom automotivo 3D para a web: explore,<br>gire e aproxime veículos em modelos 3D em alta resolução direto no navegador.**
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Abrir_showroom-3b82f6?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0d1117)](https://lianeheidemann.github.io/vehicle-3d-showroom/)
 [![Deploy](https://img.shields.io/badge/Deploy-GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white&labelColor=0d1117)](https://github.com/lianeheidemann/vehicle-3d-showroom/actions/workflows/pages.yml)
