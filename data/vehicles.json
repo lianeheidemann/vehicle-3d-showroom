@@ -15,9 +15,9 @@
     "model3d": "assets/models/concept-car-003.glb",
     "thumbnail": "assets/images/concept-car-003.webp",
     "gallery": [
-      { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
-      { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
-      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" }
+      { "label": "Frente", "view": "front", "image": "assets/images/views/front.webp" },
+      { "label": "Lateral", "view": "side", "image": "assets/images/views/side.webp" },
+      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.webp" }
     ]
   },
   {
@@ -36,9 +36,9 @@
     "model3d": "assets/models/corolla.glb",
     "thumbnail": "assets/images/corolla.svg",
     "gallery": [
-      { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
-      { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
-      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" }
+      { "label": "Frente", "view": "front", "image": "assets/images/views/front.webp" },
+      { "label": "Lateral", "view": "side", "image": "assets/images/views/side.webp" },
+      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.webp" }
     ]
   },
   {
@@ -57,9 +57,9 @@
     "model3d": "assets/models/civic.glb",
     "thumbnail": "assets/images/civic.svg",
     "gallery": [
-      { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
-      { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
-      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" }
+      { "label": "Frente", "view": "front", "image": "assets/images/views/front.webp" },
+      { "label": "Lateral", "view": "side", "image": "assets/images/views/side.webp" },
+      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.webp" }
     ]
   },
   {
@@ -78,9 +78,9 @@
     "model3d": "assets/models/compass.glb",
     "thumbnail": "assets/images/compass.svg",
     "gallery": [
-      { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
-      { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
-      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" }
+      { "label": "Frente", "view": "front", "image": "assets/images/views/front.webp" },
+      { "label": "Lateral", "view": "side", "image": "assets/images/views/side.webp" },
+      { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.webp" }
     ]
   }
 ]
