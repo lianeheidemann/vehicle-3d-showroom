@@ -19,7 +19,7 @@
 ![Blender](https://img.shields.io/badge/Blender-161b22?style=for-the-badge&logo=blender&logoColor=F5792A)
 ![Controle Xbox](https://img.shields.io/badge/Controle_Xbox-compat%C3%ADvel-161b22?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iIzEwN0MxMCIgZD0iTTcgN2gxMGE1IDUgMCAwIDEgNC45IDRsLjkgNC42YTIuNiAyLjYgMCAwIDEtNC41IDIuM0wxNi40IDE2SDcuNmwtMS45IDEuOWEyLjYgMi42IDAgMCAxLTQuNS0yLjNsLjktNC42QTUgNSAwIDAgMSA3IDd6bTAgM3YxLjVINS41VjEzSDd2MS41aDEuNVYxM0gxMHYtMS41SDguNVYxMHptOS41IDBhMSAxIDAgMSAwIDAgMiAxIDEgMCAwIDAgMC0yem0tMiAyYTEgMSAwIDEgMCAwIDIgMSAxIDAgMCAwIDAtMnoiLz48L3N2Zz4%3D)
 
-<img src="midia/interface/preview-2026-09.webp" alt="Tela do Vehicle 3D Showroom" width="100%">
+<img src="midia/interface/interface-desktop-v1.webp" alt="Tela do Vehicle 3D Showroom" width="100%">
 
 </div>
 
@@ -37,7 +37,7 @@ Catálogo de veículos com visualizador 3D interativo: o cliente escolhe um carr
 
 ### Versão mobile
 
-<p align="center"><img src="midia/interface/interface-mobile-v1.webp" alt="Interface do Vehicle 3D Showroom rodando no celular" width="320"></p>
+<p align="left"><img src="midia/interface/interface-mobile-v1.webp" alt="Interface do Vehicle 3D Showroom rodando no celular" width="320"></p>
 
 ## Executar
 
