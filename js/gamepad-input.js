@@ -2,9 +2,10 @@
  * Leitura de gamepad via Gamepad API (navigator.getGamepads()).
  *
  * Funciona com qualquer controle que o navegador reconheça no mapeamento "standard":
- * Xbox/XInput e controles virtuais como o DroidJoy (que cria um dispositivo XInput no Windows).
- * Nenhuma integração específica com DroidJoy é necessária.
+ * Xbox/XInput e controles virtuais como o DroidJoy ou o InputMapper (que expõem um controle
+ * XInput no Windows). Nenhuma integração específica com esses programas é necessária.
  *
+ *   Setas ← → (D-pad)     → girar o veículo para a esquerda / direita
  *   Analógico esquerdo X  → girar o veículo
  *   Analógico esquerdo Y  → ângulo vertical da câmera
  *   RT (botão 7)          → aproximar
@@ -12,6 +13,7 @@
  */
 const DEADZONE = 0.15;
 const ROTATE_SPEED = 2.4; // rad/s com o analógico no máximo
+const DPAD_ROTATE_SPEED = 1.6; // rad/s enquanto a seta estiver pressionada
 const PITCH_SPEED = 1.0;
 const ZOOM_SPEED = 1.3;
 const TRIGGER_THRESHOLD = 0.05;
@@ -20,6 +22,8 @@ const AXIS_LEFT_X = 0;
 const AXIS_LEFT_Y = 1;
 const BUTTON_LT = 6;
 const BUTTON_RT = 7;
+const BUTTON_DPAD_LEFT = 14;
+const BUTTON_DPAD_RIGHT = 15;
 
 function applyDeadzone(value = 0) {
   if (Math.abs(value) < DEADZONE) return 0;
@@ -29,6 +33,10 @@ function applyDeadzone(value = 0) {
 function triggerValue(gamepad, index) {
   const value = gamepad.buttons[index]?.value ?? 0;
   return value > TRIGGER_THRESHOLD ? value : 0;
+}
+
+function isPressed(gamepad, index) {
+  return Boolean(gamepad.buttons[index]?.pressed);
 }
 
 function findActiveGamepad() {
@@ -72,7 +80,9 @@ export function attachGamepadInput(input, { onStatusChange = () => {} } = {}) {
 
     const stickX = applyDeadzone(gamepad.axes[AXIS_LEFT_X]);
     const stickY = applyDeadzone(gamepad.axes[AXIS_LEFT_Y]);
-    if (stickX || stickY) input.rotate(stickX * ROTATE_SPEED * deltaTime, -stickY * PITCH_SPEED * deltaTime);
+    const dpadX = Number(isPressed(gamepad, BUTTON_DPAD_RIGHT)) - Number(isPressed(gamepad, BUTTON_DPAD_LEFT));
+    const yawSpeed = stickX * ROTATE_SPEED + dpadX * DPAD_ROTATE_SPEED;
+    if (yawSpeed || stickY) input.rotate(yawSpeed * deltaTime, -stickY * PITCH_SPEED * deltaTime);
 
     const zoomIn = triggerValue(gamepad, BUTTON_RT);
     const zoomOut = triggerValue(gamepad, BUTTON_LT);

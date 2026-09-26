@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="assets/icon/logo-256.png" alt="Logo do Vehicle 3D Showroom" width="128">
+<img src="assets/icon/logo-256.png" alt="Logo do Vehicle 3D Showroom" width="120">
 
 # Vehicle 3D Showroom
 
-Showroom 3D de veículos para a web: catálogo, visualizador GLB interativo e suporte a mouse, touch e gamepad.
+**Showroom automotivo 3D para a web: explore, gire e aproxime veículos direto no navegador.**
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Abrir_showroom-3b82f6?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0d1117)](https://lianeheidemann.github.io/showroom-3d/)
 [![Deploy](https://img.shields.io/badge/Deploy-GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white&labelColor=0d1117)](https://github.com/lianeheidemann/showroom-3d/actions/workflows/pages.yml)
@@ -18,35 +18,74 @@ Showroom 3D de veículos para a web: catálogo, visualizador GLB interativo e su
 ![WebGL](https://img.shields.io/badge/WebGL-161b22?style=for-the-badge&logo=webgl&logoColor=D8303B)
 ![Blender](https://img.shields.io/badge/Blender_%E2%86%92_GLB-161b22?style=for-the-badge&logo=blender&logoColor=F5792A)
 
+[**Demo**](https://lianeheidemann.github.io/showroom-3d/) ·
+[**Arquitetura**](docs/architecture.md) ·
+[**Pipeline Blender**](docs/blender-export.md) ·
+[**Roadmap**](docs/future-implementations.md)
+
+<br>
+
+<img src="docs/images/preview.webp" alt="Tela do Vehicle 3D Showroom: catálogo à esquerda, visualizador 3D ao centro e ficha do veículo à direita" width="100%">
+
 </div>
 
-## Sobre
+<br>
 
-Aplicação web interativa para visualização tridimensional de veículos, permitindo navegar pelo catálogo, explorar modelos 3D e consultar informações dos veículos.
+## Sumário
 
-É um MVP 100% estático, sem backend, pensado para publicação no GitHub Pages e para evoluir por fases (veja [docs/future-implementations.md](docs/future-implementations.md)).
+- [Visão geral](#visão-geral)
+- [Funcionalidades](#funcionalidades)
+- [Stack](#stack)
+- [Arquitetura](#arquitetura)
+- [Começando](#começando)
+- [Controles](#controles)
+- [Estrutura do projeto](#estrutura-do-projeto)
+- [Catálogo e modelos 3D](#catálogo-e-modelos-3d)
+- [Deploy](#deploy)
+- [Desempenho e robustez](#desempenho-e-robustez)
+- [Roadmap](#roadmap)
+- [Créditos](#créditos)
+- [Licença](#licença)
 
+## Visão geral
+
+O **Vehicle 3D Showroom** é uma aplicação web para vender veículos de um jeito mais visual. O cliente navega pelo catálogo, escolhe um carro, interage com o modelo 3D e consulta a ficha técnica e o preço.
+
+O projeto é **100% estático**: sem backend, sem banco de dados e sem etapa de build. Roda em qualquer hospedagem estática e está publicado no GitHub Pages. A arquitetura foi pensada para crescer por fases, de hotspots e animações até AR e VR.
+
+> [!NOTE]
 > Os veículos, preços e dados do catálogo são **fictícios**, apenas para demonstração.
 
-## Tecnologias
+## Funcionalidades
 
-- HTML5, CSS3 e JavaScript puro (módulos ES, sem framework nem etapa de build)
-- [A-Frame](https://aframe.io/) 1.7: cena, câmera, luzes e carregamento de GLB
-- [Three.js](https://threejs.org/), o que vem embutido no A-Frame (`AFRAME.THREE`), usado para órbita, enquadramento, raycasting e liberação de memória
-- WebGL
-- Gamepad API do navegador (compatível com Xbox/XInput e DroidJoy)
-- Blender para modelagem e exportação
-- GLB / glTF 2.0
+| | |
+|---|---|
+| 🚗 **Catálogo dinâmico** | Veículos lidos de um único `data/vehicles.json`; adicionar um carro não exige mudar código |
+| 🧊 **Visualizador 3D** | Modelos GLB/glTF com enquadramento automático, plataforma e iluminação de estúdio com reflexos |
+| 🖱️ **Interação completa** | Girar, zoom com limites, clique no veículo (raycasting) e vistas Frente / Lateral / Traseira com transição suave |
+| 📱 **Mobile** | Layout responsivo, arrastar com um dedo e pinça para zoom |
+| 🎮 **Gamepad** | Gamepad API: controles Xbox/XInput e DroidJoy funcionam sem integração específica |
+| ⚡ **Carregamento sob demanda** | Só o modelo selecionado é baixado; o anterior é liberado da GPU |
+| 🛡️ **Tolerante a falhas** | Modelo provisório enquanto o GLB não existe, mensagens amigáveis e correção automática de modelos problemáticos |
+
+## Stack
+
+| Camada | Tecnologia |
+|---|---|
+| Interface | HTML5, CSS3 e JavaScript puro (módulos ES) |
+| Cena 3D | [A-Frame 1.7](https://aframe.io/): cena, câmera, luzes e carregamento de GLB |
+| Renderização | [Three.js](https://threejs.org/) embutido no A-Frame (`AFRAME.THREE`) sobre WebGL, com um único renderer |
+| Entrada | Pointer/Touch Events, teclado e Gamepad API |
+| Conteúdo 3D | Blender → GLB / glTF 2.0 |
+| Deploy | GitHub Actions → GitHub Pages |
 
 ## Arquitetura
 
 ```mermaid
-flowchart TD
-    subgraph Renderização
+flowchart LR
+    subgraph Conteúdo
         B[Blender] --> G[GLB / glTF]
-        G --> A[A-Frame]
-        A --> T[Three.js]
-        T --> W[WebGL]
+        J[(vehicles.json)]
     end
 
     subgraph Entrada
@@ -56,123 +95,168 @@ flowchart TD
         GP[Gamepad / DroidJoy] --> IM
     end
 
-    IM -->|rotate · zoom · select| V[Vehicle Viewer]
-    V --> A
-    J[data/vehicles.json] --> APP[app.js]
-    APP --> C[Catálogo]
-    APP --> I[Painel de informações]
-    APP --> V
+    subgraph Aplicação
+        APP[app.js] --> C[Catálogo]
+        APP --> I[Ficha do veículo]
+        APP --> GA[Vistas]
+        APP --> V[Vehicle Viewer]
+    end
+
+    J --> APP
+    IM -- "rotate · zoom · select" --> V
+    GA -- "setView" --> V
+    G --> V
+    V --> A[A-Frame] --> T[Three.js] --> W[WebGL]
 ```
 
-Existe um único renderer (o do A-Frame). O Input Manager traduz todas as entradas em três ações (`rotate`, `zoom` e `select`), e o viewer só conhece essas ações. Mais detalhes em [docs/architecture.md](docs/architecture.md).
+- **Um único renderer:** o A-Frame gerencia a cena, e o Three.js dele é usado só onde é preciso (órbita, raycasting, enquadramento e liberação de memória).
+- **Entradas desacopladas:** mouse, touch, teclado e gamepad são convertidos pelo `InputManager` em três ações (`rotate`, `zoom` e `select`). O viewer não sabe de onde veio a entrada.
+- **Dados separados da interface:** todo o conteúdo vem do JSON e dos assets.
 
-## Estrutura
+Detalhes em [docs/architecture.md](docs/architecture.md).
 
-```text
-index.html               layout e cena A-Frame
-css/main.css             tema dark e layout responsivo
-js/app.js                inicialização, carregamento do JSON e estados de erro
-js/catalog.js            lista de veículos
-js/vehicle-info.js       painel de informações
-js/gallery.js            miniaturas de vistas
-js/viewer.js             visualizador 3D (carregar/descartar modelo, órbita, zoom, raycast)
-js/placeholder-car.js    carro provisório enquanto não houver GLB
-js/input-manager.js      normalização das entradas
-js/mouse-input.js        mouse e scroll
-js/touch-input.js        arrastar e pinça
-js/keyboard-input.js     setas e + / -
-js/gamepad-input.js      Gamepad API
-js/format.js, toast.js   utilitários
-data/vehicles.json       catálogo (único lugar com dados dos veículos)
-assets/models/           GLBs exportados do Blender
-assets/images/           thumbnails e miniaturas
-docs/                    arquitetura, exportação Blender e próximas fases
-```
+## Começando
 
-## Controles
-
-| Entrada | Ação |
-|---|---|
-| Mouse: arrastar | Gira o veículo (horizontal) e ajusta levemente o ângulo (vertical) |
-| Mouse: scroll | Zoom, com distância mínima e máxima |
-| Mouse: clique no veículo | Raycast no modelo e destaque do painel de informações |
-| Miniaturas Frente / Lateral / Traseira | Giram a câmera suavemente até a vista escolhida |
-| Touch: um dedo | Gira |
-| Touch: pinça | Zoom |
-| Touch: toque no veículo | Destaque do painel |
-| Teclado: ← → ↑ ↓ | Gira / ângulo vertical |
-| Teclado: `+` `-` | Zoom |
-| Gamepad: analógico esquerdo X / Y | Gira / ângulo vertical |
-| Gamepad: RT / LT | Aproxima / afasta |
-
-O gamepad é opcional: sem controle ou sem suporte à Gamepad API, a aplicação funciona normalmente e só indica o status na barra inferior.
-
-### DroidJoy
-
-O site não tem nenhuma integração específica com o DroidJoy. O DroidJoy Server cria um controle XInput virtual no Windows, e o navegador o expõe pela Gamepad API como qualquer controle Xbox:
-
-```text
-Android → DroidJoy → DroidJoy Server → XInput → Windows → Navegador → Gamepad API → gamepad-input.js
-```
-
-No Chrome e no Edge, o controle só aparece depois que você pressionar algum botão com a página em foco.
-
-## Como executar
-
-Como o catálogo é carregado com `fetch()`, **não abra o `index.html` direto pelo explorador de arquivos** (`file://`): o navegador bloqueia a requisição e a página mostra uma mensagem de erro. Use qualquer servidor estático:
+**Pré-requisito:** um navegador moderno com WebGL e qualquer servidor HTTP estático. O exemplo abaixo usa Python.
 
 ```bash
+git clone https://github.com/lianeheidemann/showroom-3d.git
+cd showroom-3d
 python -m http.server 8000
 ```
 
-Depois acesse:
+Acesse **http://localhost:8000**.
+
+> [!IMPORTANT]
+> Não abra o `index.html` direto pelo explorador de arquivos (`file://`). O catálogo é carregado com `fetch()`, que o navegador bloqueia nesse modo. Alternativas ao Python: `npx serve` ou a extensão *Live Server* do VS Code.
+
+## Controles
+
+| Ação | Mouse | Touch | Teclado | Gamepad |
+|---|---|---|---|---|
+| Girar o veículo | Arrastar | Arrastar com um dedo | `←` `→` | Setas `←` `→` (D-pad) ou analógico esquerdo X |
+| Ângulo vertical | Arrastar na vertical | Arrastar na vertical | `↑` `↓` | Analógico esquerdo Y |
+| Zoom | Scroll | Pinça | `+` `-` | RT (aproxima) / LT (afasta) |
+| Ver detalhes | Clique no veículo | Toque no veículo | — | — |
+| Vistas predefinidas | Miniaturas Frente / Lateral / Traseira | Toque nas miniaturas | — | — |
+
+O zoom tem limites: a câmera não entra no carro nem se afasta demais. O gamepad é opcional, e sem ele a aplicação funciona normalmente.
+
+<details>
+<summary><b>Controles via InputMapper ou DroidJoy</b></summary>
+
+<br>
+
+Não há integração proprietária. Esses programas expõem um controle XInput (Xbox 360) no Windows, e o navegador o lê pela Gamepad API como qualquer controle Xbox:
 
 ```text
-http://localhost:8000
+DualShock / DualSense → InputMapper ─┐
+Android → DroidJoy → DroidJoy Server ┴→ XInput → Windows → Navegador → Gamepad API → gamepad-input.js
 ```
 
-Alternativas: `npx serve`, ou a extensão *Live Server* do VS Code.
+No InputMapper, mantenha a emulação de **Xbox 360 Controller** ativa, para que o navegador use o mapeamento padrão (setas = botões 14 e 15).
 
-## GitHub Pages
+No Chrome e no Edge, o controle só é reconhecido depois que um botão é pressionado com a página em foco. O status aparece no canto inferior direito.
 
-O deploy é automático pelo workflow [.github/workflows/pages.yml](.github/workflows/pages.yml). A cada push na `main`, ele:
+</details>
 
-1. valida o `data/vehicles.json`;
-2. monta o site só com os arquivos publicados (`index.html`, `css/`, `js/`, `data/`, `assets/`);
-3. publica no GitHub Pages.
+## Estrutura do projeto
 
-O workflow também pode ser disparado manualmente em **Actions → Deploy GitHub Pages → Run workflow**.
+```text
+showroom-3d/
+├── index.html                 # Layout e cena A-Frame
+├── css/main.css               # Tema dark e layout responsivo
+├── js/
+│   ├── app.js                 # Inicialização, carregamento do catálogo e estados de erro
+│   ├── viewer.js              # Visualizador: carga/descarte, enquadramento, órbita, vistas, raycast
+│   ├── placeholder-car.js     # Carro provisório enquanto o GLB não existe
+│   ├── catalog.js             # Lista de veículos
+│   ├── vehicle-info.js        # Ficha técnica e preço
+│   ├── gallery.js             # Miniaturas de vistas
+│   ├── input-manager.js       # Normalização das entradas
+│   ├── mouse-input.js · touch-input.js · keyboard-input.js · gamepad-input.js
+│   └── format.js · toast.js   # Utilitários
+├── data/vehicles.json         # Catálogo, único lugar com dados dos veículos
+├── assets/
+│   ├── models/                # GLBs
+│   ├── images/                # Thumbnails e miniaturas
+│   └── icon/                  # Logo e favicons
+├── docs/                      # Arquitetura, pipeline Blender e roadmap
+└── .github/workflows/pages.yml
+```
 
-**Configuração única:** em **Settings → Pages → Build and deployment**, selecione **Source: GitHub Actions**. No plano gratuito do GitHub, o Pages exige repositório público.
-
-Site publicado: https://lianeheidemann.github.io/showroom-3d/
-
-Todos os caminhos do projeto são relativos, então o site funciona dentro do subdiretório do repositório.
-
-## Como substituir os modelos provisórios
-
-Enquanto `assets/models/<carro>.glb` não existir, o viewer mostra um carro provisório montado com primitivas, com um aviso "Modelo provisório". Para usar o modelo real:
-
-1. Exporte o veículo do Blender como `.glb` (passo a passo em [docs/blender-export.md](docs/blender-export.md)).
-2. Salve com o nome indicado em `model3d` no `data/vehicles.json` (ex.: `assets/models/corolla.glb`).
-3. Recarregue a página. O arquivo é detectado automaticamente e o aviso desaparece.
-
-Para trocar as thumbnails, gere uma imagem 16:9 (por exemplo um render do Blender em `.webp`), coloque em `assets/images/` e atualize `thumbnail` no JSON. As miniaturas de vistas ficam em `gallery`.
+## Catálogo e modelos 3D
 
 ### Adicionar um veículo
 
-Acrescente um objeto em `data/vehicles.json` com os mesmos campos (`id`, `brand`, `model`, `version`, `year`, `mileage`, `engine`, `transmission`, `color`, `colorHex`, `body`, `fuel`, `price`, `model3d`, `thumbnail`, `gallery`). Nenhum código precisa ser alterado.
+Acrescente um item em `data/vehicles.json`:
 
-## Desempenho
+```json
+{
+  "id": "corolla-2024",
+  "brand": "Toyota",
+  "model": "Corolla",
+  "version": "XEI 2.0 Flex Automático",
+  "year": 2024,
+  "mileage": 12500,
+  "engine": "2.0 Flex",
+  "transmission": "Automático CVT",
+  "color": "Prata",
+  "colorHex": "#b9bec5",
+  "body": "Sedã",
+  "fuel": "Flex",
+  "price": 145000,
+  "model3d": "assets/models/corolla.glb",
+  "thumbnail": "assets/images/corolla.svg",
+  "gallery": [
+    { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" }
+  ]
+}
+```
 
-- Ao abrir a página, só as thumbnails são carregadas.
-- O GLB só é baixado quando o veículo é selecionado.
-- Ao trocar de veículo, o modelo anterior sai da cena e suas geometrias, materiais e texturas são liberados da GPU. Só um modelo fica ativo por vez.
+A ordem no JSON é a ordem do catálogo, e o primeiro item abre selecionado.
+
+### Modelos provisórios e GLBs reais
+
+Enquanto o arquivo de `model3d` não existir, o viewer exibe um **carro provisório** gerado com primitivas e um aviso discreto. Para usar o modelo real, exporte do Blender como `.glb` e salve no caminho indicado. Ele é detectado automaticamente, sem mudar código.
+
+O guia [docs/blender-export.md](docs/blender-export.md) cobre escala, orientação, nomes de peças, orçamento de polígonos e os problemas mais comuns em modelos baixados da internet.
+
+## Deploy
+
+O deploy é contínuo via [GitHub Actions](.github/workflows/pages.yml). A cada push na `main`:
+
+1. **Valida** o `data/vehicles.json`;
+2. **Monta** o site só com os arquivos publicados (`index.html`, `css/`, `js/`, `data/`, `assets/`);
+3. **Publica** no GitHub Pages: **https://lianeheidemann.github.io/showroom-3d/**
+
+Para um fork: em **Settings → Pages**, selecione **Source: GitHub Actions**. Todos os caminhos são relativos, então o site funciona em qualquer subdiretório.
+
+## Desempenho e robustez
+
+- **Sob demanda:** ao abrir a página, só as thumbnails são carregadas. Cada GLB é baixado apenas quando o veículo é selecionado.
+- **Um modelo por vez:** ao trocar de veículo, geometrias, materiais e texturas do anterior são liberados da GPU. Cargas antigas que terminem fora de ordem são descartadas.
+- **Modelos imperfeitos:** peças soltas longe do carro e planos de sombra (comuns em exportações do Sketchfab) são detectados e ocultados. Modelos em escala errada, como centímetros, são corrigidos.
+- **Falhas tratadas:** JSON ausente, GLB inexistente ou corrompido, navegador sem Gamepad API e ausência de controle geram mensagens amigáveis na interface. Os detalhes técnicos vão para o console.
+
+## Roadmap
+
+| Fase | Entrega | Status |
+|---|---|---|
+| 1 | MVP: catálogo, viewer 3D, mouse, touch, teclado e gamepad | ✅ |
+| 6 | Câmeras predefinidas (Frente, Lateral, Traseira) | 🟡 Parcial |
+| 2–5 | Hotspots, peças individuais, animações e modo interior | ⏳ |
+| 7–12 | Troca de cor, gamepad avançado, busca e filtros, comparação, favoritos e links por veículo | ⏳ |
+| 13–15 | Contato, agendamento e painel administrativo (exigem backend) | ⏳ |
+| 16–19 | CDN para modelos, compressão (Draco/KTX2), AR e VR | ⏳ |
+
+Plano completo em [docs/future-implementations.md](docs/future-implementations.md).
 
 ## Créditos
 
-- **Concept Car 003** (`assets/models/concept-car-003.glb`): modelo "FREE Concept Car 003 — public domain (CC0)", de [Unity Fan](https://sketchfab.com/unityfan777), disponível no [Sketchfab](https://sketchfab.com/3d-models/free-concept-car-003-public-domain-cc0-77664fc474c444f4947e9834ed0d30ad).
+- **Concept Car 003:** [FREE Concept Car 003 — public domain (CC0)](https://sketchfab.com/3d-models/free-concept-car-003-public-domain-cc0-77664fc474c444f4947e9834ed0d30ad), de [Unity Fan](https://sketchfab.com/unityfan777), no Sketchfab.
+- Construído com [A-Frame](https://aframe.io/) e [Three.js](https://threejs.org/).
 
 ## Licença
 
-O código está sob a licença [MIT](LICENSE). Os modelos 3D de terceiros seguem as licenças indicadas em **Créditos**.
+Código distribuído sob a licença [MIT](LICENSE). Modelos 3D de terceiros seguem as licenças indicadas em [Créditos](#créditos).
