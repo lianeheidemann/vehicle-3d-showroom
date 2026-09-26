@@ -278,11 +278,6 @@ svg {
   color: var(--text-muted);
 }
 
-.vehicle-card__price {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent);
-}
 
 .state-message {
   padding: 16px 8px;
@@ -492,25 +487,11 @@ svg {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.price {
-  margin-top: 22px;
-}
-
-.price__label {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.price__value {
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
 
 .actions {
   display: grid;
   gap: 8px;
-  margin-top: 18px;
+  margin-top: 24px;
 }
 
 .btn {

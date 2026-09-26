@@ -194,7 +194,6 @@ Adicione um item em `data/vehicles.json`. A ordem no arquivo é a ordem na tela,
   "colorHex": "#2b2e33",
   "body": "Hatch",
   "fuel": "Elétrico",
-  "price": 450000,
   "model3d": "assets/models/concept-car-003.glb",
   "thumbnail": "assets/images/concept-car-003.webp",
   "gallery": [

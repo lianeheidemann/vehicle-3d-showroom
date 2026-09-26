@@ -14,7 +14,7 @@ index.html
         │                              ├─ studio-environment  reflexos (PMREM)
         │                              ├─ placeholder-car     carro provisório
         │                              └─ three-utils         dispose, HEAD, cena pronta
-        └── utils/     format.js  preço e quilometragem (pt-BR)
+        └── utils/     format.js  quilometragem (pt-BR)
 ```
 
 ### Regras de dependência

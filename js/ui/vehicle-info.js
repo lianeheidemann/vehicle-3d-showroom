@@ -1,4 +1,4 @@
-import { formatMileage, formatPrice } from '../utils/format.js';
+import { formatMileage } from '../utils/format.js';
 
 const SPEC_FIELDS = [
   ['Ano', (v) => String(v.year)],
@@ -25,7 +25,6 @@ export function createVehicleInfo(panelEl, { onAction }) {
       field('brand').textContent = vehicle.brand;
       field('model').textContent = vehicle.model;
       field('version').textContent = vehicle.version;
-      field('price').textContent = formatPrice(vehicle.price);
 
       specsEl.replaceChildren(
         ...SPEC_FIELDS.map(([label, getValue]) => {

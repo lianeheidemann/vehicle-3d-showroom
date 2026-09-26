@@ -1,4 +1,4 @@
-import { formatMileage, formatPrice } from '../utils/format.js';
+import { formatMileage } from '../utils/format.js';
 
 /** Lista lateral de veículos. Só exibe thumbnails — os modelos 3D são carregados sob demanda. */
 export function createCatalog(listEl, countEl, { onSelect }) {
@@ -27,8 +27,7 @@ export function createCatalog(listEl, countEl, { onSelect }) {
     body.className = 'vehicle-card__body';
     body.append(
       textEl('span', 'vehicle-card__title', `${vehicle.brand} ${vehicle.model}`),
-      textEl('span', 'vehicle-card__meta', `${vehicle.year} | ${formatMileage(vehicle.mileage)}`),
-      textEl('span', 'vehicle-card__price', formatPrice(vehicle.price))
+      textEl('span', 'vehicle-card__meta', `${vehicle.year} | ${formatMileage(vehicle.mileage)}`)
     );
 
     button.append(thumb, body);

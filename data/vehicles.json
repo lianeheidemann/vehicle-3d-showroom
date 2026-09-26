@@ -12,7 +12,6 @@
     "colorHex": "#2b2e33",
     "body": "Hatch",
     "fuel": "Elétrico",
-    "price": 450000,
     "model3d": "assets/models/concept-car-003.glb",
     "thumbnail": "assets/images/concept-car-003.webp",
     "gallery": [
@@ -35,7 +34,6 @@
     "colorHex": "#b9bec5",
     "body": "Sedã",
     "fuel": "Flex",
-    "price": 145000,
     "model3d": "assets/models/corolla.glb",
     "thumbnail": "assets/images/corolla.svg",
     "gallery": [
@@ -58,7 +56,6 @@
     "colorHex": "#6b7078",
     "body": "Sedã",
     "fuel": "Gasolina",
-    "price": 168900,
     "model3d": "assets/models/civic.glb",
     "thumbnail": "assets/images/civic.svg",
     "gallery": [
@@ -81,7 +78,6 @@
     "colorHex": "#8f1d22",
     "body": "SUV",
     "fuel": "Flex",
-    "price": 172500,
     "model3d": "assets/models/compass.glb",
     "thumbnail": "assets/images/compass.svg",
     "gallery": [

@@ -18,13 +18,13 @@
 ![WebGL](https://img.shields.io/badge/WebGL-161b22?style=for-the-badge&logo=webgl&logoColor=D8303B)
 ![Blender](https://img.shields.io/badge/Blender_%E2%86%92_GLB-161b22?style=for-the-badge&logo=blender&logoColor=F5792A)
 
-<img src="docs/images/preview.webp" alt="Tela do Vehicle 3D Showroom" width="100%">
+<img src="docs/images/preview-2026-09.webp" alt="Tela do Vehicle 3D Showroom" width="100%">
 
 </div>
 
 ## Sobre
 
-Catálogo de veículos com visualizador 3D interativo: o cliente escolhe um carro, gira, aproxima e consulta ficha técnica e preço. É um site **100% estático**, sem backend nem build, publicado no GitHub Pages.
+Catálogo de veículos com visualizador 3D interativo: o cliente escolhe um carro, gira, aproxima e consulta a ficha técnica. É um site **100% estático**, sem backend nem build, publicado no GitHub Pages.
 
 - Modelos **GLB/glTF** carregados sob demanda, com enquadramento automático e iluminação de estúdio
 - Vistas **Frente / Lateral / Traseira**, zoom com limites e clique no veículo
@@ -32,7 +32,7 @@ Catálogo de veículos com visualizador 3D interativo: o cliente escolhe um carr
 - Catálogo em um único [`data/vehicles.json`](data/vehicles.json)
 
 > [!NOTE]
-> Veículos, preços e dados são **fictícios**, apenas para demonstração.
+> Veículos e dados são **fictícios**, apenas para demonstração.
 
 ## Executar
 
