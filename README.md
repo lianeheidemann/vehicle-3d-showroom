@@ -33,7 +33,7 @@ Catálogo de veículos com visualizador 3D interativo: o cliente escolhe um carr
 - Catálogo em um único [`data/vehicles.json`](data/vehicles.json)
 
 > [!NOTE]
-> Veículos e dados são **fictícios**, apenas para demonstração.
+> Modelos usados são apenas para demonstração.
 
 ### Versão mobile
 
