@@ -59,7 +59,7 @@ Compatível com **controle de Xbox** (Xbox One, Series X|S e Xbox 360) e com qua
 | Zoom | Scroll | Pinça | `+` `-` | R / L (ou RT / LT) |
 | Detalhes | — | — | — | — |
 
-<p align="center"><img src="docs/images/xbox-controls.svg" alt="Botões do controle Xbox usados no showroom: L afasta e R aproxima (LT e RT também), analógico esquerdo gira e ajusta o ângulo, setas esquerda e direita giram o carro" width="640"></p>
+<p align="left"><img src="docs/images/xbox-controls.svg" alt="Botões do controle Xbox usados no showroom: L afasta e R aproxima (LT e RT também), analógico esquerdo gira e ajusta o ângulo, setas esquerda e direita giram o carro" width="640"></p>
 
 **InputMapper:** ative a emulação de *Xbox 360 Controller* e pressione um botão com a página em foco para o navegador reconhecer o controle.
 
