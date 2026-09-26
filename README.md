@@ -2,10 +2,9 @@
 
 # Vehicle 3D Showroom
 
-**Showroom automotivo 3D para a web: explore, gire e aproxime veículos em modelos 3D em alta resolução direto no navegador.**
-
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Abrir_showroom-3b82f6?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0d1117)](https://lianeheidemann.github.io/vehicle-3d-showroom/)
 [![Deploy](https://img.shields.io/badge/Deploy-GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white&labelColor=0d1117)](https://github.com/lianeheidemann/vehicle-3d-showroom/actions/workflows/pages.yml)
+![Controle Xbox](https://img.shields.io/badge/Controle_Xbox-compat%C3%ADvel-161b22?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iIzEwN0MxMCIgZD0iTTcgN2gxMGE1IDUgMCAwIDEgNC45IDRsLjkgNC42YTIuNiAyLjYgMCAwIDEtNC41IDIuM0wxNi40IDE2SDcuNmwtMS45IDEuOWEyLjYgMi42IDAgMCAxLTQuNS0yLjNsLjktNC42QTUgNSAwIDAgMSA3IDd6bTAgM3YxLjVINS41VjEzSDd2MS41aDEuNVYxM0gxMHYtMS41SDguNVYxMHptOS41IDBhMSAxIDAgMSAwIDAgMiAxIDEgMCAwIDAgMC0yem0tMiAyYTEgMSAwIDEgMCAwIDIgMSAxIDAgMCAwIDAtMnoiLz48L3N2Zz4%3D)
 
 ![HTML5](https://img.shields.io/badge/HTML5-161b22?style=for-the-badge&logo=html5&logoColor=E34F26)
 ![CSS](https://img.shields.io/badge/CSS3-161b22?style=for-the-badge&logo=css&logoColor=1572B6)
@@ -14,7 +13,8 @@
 ![Three.js](https://img.shields.io/badge/Three.js-161b22?style=for-the-badge&logo=threedotjs&logoColor=white)
 ![WebGL](https://img.shields.io/badge/WebGL-161b22?style=for-the-badge&logo=webgl&logoColor=D8303B)
 ![Blender](https://img.shields.io/badge/Blender-161b22?style=for-the-badge&logo=blender&logoColor=F5792A)
-![Controle Xbox](https://img.shields.io/badge/Controle_Xbox-compat%C3%ADvel-161b22?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iIzEwN0MxMCIgZD0iTTcgN2gxMGE1IDUgMCAwIDEgNC45IDRsLjkgNC42YTIuNiAyLjYgMCAwIDEtNC41IDIuM0wxNi40IDE2SDcuNmwtMS45IDEuOWEyLjYgMi42IDAgMCAxLTQuNS0yLjNsLjktNC42QTUgNSAwIDAgMSA3IDd6bTAgM3YxLjVINS41VjEzSDd2MS41aDEuNVYxM0gxMHYtMS41SDguNVYxMHptOS41IDBhMSAxIDAgMSAwIDAgMiAxIDEgMCAwIDAgMC0yem0tMiAyYTEgMSAwIDEgMCAwIDIgMSAxIDAgMCAwIDAtMnoiLz48L3N2Zz4%3D)
+
+**Showroom automotivo 3D para a web: explore, gire e aproxime veículos em modelos 3D em alta resolução direto no navegador.**
 
 <img src="midia/interface/interface-desktop-v2.webp" alt="Tela do Vehicle 3D Showroom" width="100%">
 
