@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" width="160" height="100" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Ícone "Lateral" — frente à direita, traço único -->
-  <path d="M40 68 H30 V63 Q30 58 36 57 L54 55 L66 43 Q69 40 75 40 H95 Q100 40 104 44 L114 55 L126 56.5 Q132 57.5 132 63 V68 H122 M106 68 H56" stroke="#9aa3ae" stroke-width="2.2"/>
-  <path d="M58 55 H112" stroke="#9aa3ae" stroke-width="2.2"/>
-  <circle cx="48" cy="68" r="7" stroke="#9aa3ae" stroke-width="2.2"/>
-  <circle cx="114" cy="68" r="7" stroke="#9aa3ae" stroke-width="2.2"/>
-  <path d="M127.5 60 H131" stroke="#3b82f6" stroke-width="3"/>
-  <path d="M31 60 H34.5" stroke="#e5484d" stroke-width="3"/>
-</svg>

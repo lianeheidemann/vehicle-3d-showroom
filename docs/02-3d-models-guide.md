@@ -197,9 +197,9 @@ Adicione um item em `data/vehicles.json`. A ordem no arquivo é a ordem na tela,
   "model3d": "assets/models/concept-car-003.glb",
   "thumbnail": "assets/images/concept-car-003.webp",
   "gallery": [
-    { "label": "Frente", "view": "front", "image": "assets/images/views/front.svg" },
-    { "label": "Lateral", "view": "side", "image": "assets/images/views/side.svg" },
-    { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.svg" }
+    { "label": "Frente", "view": "front", "image": "assets/images/views/front.webp" },
+    { "label": "Lateral", "view": "side", "image": "assets/images/views/side.webp" },
+    { "label": "Traseira", "view": "rear", "image": "assets/images/views/rear.webp" }
   ]
 }
 ```
