@@ -35,6 +35,10 @@ Catálogo de veículos com visualizador 3D interativo: o cliente escolhe um carr
 > [!NOTE]
 > Veículos e dados são **fictícios**, apenas para demonstração.
 
+### Versão mobile
+
+<p align="center"><img src="midia/interface/interface-mobile-v1.webp" alt="Interface do Vehicle 3D Showroom rodando no celular" width="320"></p>
+
 ## Executar
 
 ```bash
