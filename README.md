@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="assets/icon/logo-256.png" alt="Logo do Vehicle 3D Showroom" width="120">
-
 # Vehicle 3D Showroom
 
 **Showroom automotivo 3D para a web: explore, gire e aproxime veículos direto no navegador.**
