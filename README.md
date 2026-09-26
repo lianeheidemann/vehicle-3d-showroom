@@ -34,7 +34,7 @@ Catálogo de veículos com visualizador 3D interativo: o cliente escolhe um carr
 
 ### Versão mobile
 
-<p align="left"><img src="midia/interface/interface-mobile-v2.webp" alt="Interface do Vehicle 3D Showroom rodando no celular" width="320"></p>
+<p align="left"><img src="midia/interface/interface-mobile-v2.webp" alt="Interface do Vehicle 3D Showroom rodando no celular" width="300"></p>
 
 ## Executar
 
