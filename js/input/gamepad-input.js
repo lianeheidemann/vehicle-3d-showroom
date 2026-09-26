@@ -2,8 +2,8 @@
  * Leitura de gamepad via Gamepad API (navigator.getGamepads()).
  *
  * Funciona com qualquer controle que o navegador reconheça no mapeamento "standard":
- * Xbox/XInput e controles virtuais como o DroidJoy ou o InputMapper (que expõem um controle
- * XInput no Windows). Nenhuma integração específica com esses programas é necessária.
+ * Xbox/XInput e controles emulados pelo InputMapper (que expõe um controle XInput no Windows).
+ * Nenhuma integração específica com o InputMapper é necessária.
  *
  *   Setas ← → (D-pad)     → girar o veículo para a esquerda / direita
  *   Analógico esquerdo X  → girar o veículo

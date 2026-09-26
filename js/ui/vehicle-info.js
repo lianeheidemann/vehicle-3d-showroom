@@ -1,4 +1,4 @@
-import { formatMileage, formatPrice } from './format.js';
+import { formatMileage, formatPrice } from '../utils/format.js';
 
 const SPEC_FIELDS = [
   ['Ano', (v) => String(v.year)],

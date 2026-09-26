@@ -26,7 +26,7 @@ Objetos separados no Blender: `Body`, `Door_FL`, `Door_FR`, `Door_RL`, `Door_RR`
 - clicar na roda → mostrar especificação
 - clicar no motor → abrir informações
 
-*Ponto de partida:* o raycast em `viewer.js` já retorna `hits[0].object`. Basta subir na hierarquia até achar um nome conhecido.
+*Ponto de partida:* o raycast em `viewer/vehicle-viewer.js` já retorna `hits[0].object`. Basta subir na hierarquia até achar um nome conhecido.
 
 ## Fase 4: Animações
 
@@ -50,7 +50,7 @@ câmera atual → interpolação suave → nova posição
 
 Seletor de cor (Branco, Preto, Prata, Azul, Vermelho) trocando o material da carroceria em tempo real, sem carregar outro GLB por cor. Depende do material `Body` nomeado na Fase 3.
 
-## Fase 8: Melhorias do Gamepad / DroidJoy
+## Fase 8: Melhorias do Gamepad / InputMapper
 
 | Controle | Ação |
 |---|---|
@@ -62,7 +62,7 @@ Seletor de cor (Branco, Preto, Prata, Azul, Vermelho) trocando o material da car
 | Y | Resetar câmera |
 | X | Alternar exterior/interior |
 
-Indicador "🎮 Controle conectado", mostrando o nome (ex.: *Xbox Controller*, *DroidJoy Virtual Gamepad*) quando a Gamepad API informar. O MVP já mostra um status simples na barra inferior.
+Indicador "🎮 Controle conectado", mostrando o nome (ex.: *Xbox Controller*, *InputMapper (Xbox 360 Controller emulado)*) quando a Gamepad API informar. O MVP já mostra um status simples na barra inferior.
 
 ## Fase 9: Busca e filtros
 

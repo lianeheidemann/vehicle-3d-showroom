@@ -1,5 +1,7 @@
 # Exportando veículos do Blender para GLB
 
+> Para o processo completo (da escolha do modelo à publicação), veja o [Guia de tratamento de modelos 3D](3d-models-guide.md).
+
 ## Preparação da cena
 
 1. **Escala:** 1 unidade = 1 metro (*Scene Properties → Units → Metric, Unit Scale 1.0*). Um sedã deve medir por volta de 4,5 m. O viewer reescala automaticamente modelos com escala muito fora (ex.: exportados em centímetros), mas é melhor exportar certo.

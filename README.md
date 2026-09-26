@@ -20,7 +20,7 @@
 
 [**Demo**](https://lianeheidemann.github.io/showroom-3d/) ·
 [**Arquitetura**](docs/architecture.md) ·
-[**Pipeline Blender**](docs/blender-export.md) ·
+[**Guia de modelos 3D**](docs/3d-models-guide.md) ·
 [**Roadmap**](docs/future-implementations.md)
 
 <br>
@@ -58,15 +58,15 @@ O projeto é **100% estático**: sem backend, sem banco de dados e sem etapa de 
 
 ## Funcionalidades
 
-| | |
+| Funcionalidade | Descrição |
 |---|---|
-| 🚗 **Catálogo dinâmico** | Veículos lidos de um único `data/vehicles.json`; adicionar um carro não exige mudar código |
-| 🧊 **Visualizador 3D** | Modelos GLB/glTF com enquadramento automático, plataforma e iluminação de estúdio com reflexos |
-| 🖱️ **Interação completa** | Girar, zoom com limites, clique no veículo (raycasting) e vistas Frente / Lateral / Traseira com transição suave |
-| 📱 **Mobile** | Layout responsivo, arrastar com um dedo e pinça para zoom |
-| 🎮 **Gamepad** | Gamepad API: controles Xbox/XInput e DroidJoy funcionam sem integração específica |
-| ⚡ **Carregamento sob demanda** | Só o modelo selecionado é baixado; o anterior é liberado da GPU |
-| 🛡️ **Tolerante a falhas** | Modelo provisório enquanto o GLB não existe, mensagens amigáveis e correção automática de modelos problemáticos |
+| **Catálogo dinâmico** | Veículos lidos de um único `data/vehicles.json`; adicionar um carro não exige mudar código |
+| **Visualizador 3D** | Modelos GLB/glTF com enquadramento automático, plataforma e iluminação de estúdio com reflexos |
+| **Interação completa** | Girar, zoom com limites, clique no veículo (raycasting) e vistas Frente / Lateral / Traseira com transição suave |
+| **Mobile** | Layout responsivo, arrastar com um dedo e pinça para zoom |
+| **Gamepad** | Gamepad API: controles Xbox/XInput e o joystick emulado pelo InputMapper funcionam sem integração específica |
+| **Carregamento sob demanda** | Só o modelo selecionado é baixado; o anterior é liberado da GPU |
+| **Tolerante a falhas** | Modelo provisório enquanto o GLB não existe, mensagens amigáveis e correção automática de modelos problemáticos |
 
 ## Stack
 
@@ -92,7 +92,7 @@ flowchart LR
         M[Mouse] --> IM[Input Manager]
         TO[Touch] --> IM
         K[Teclado] --> IM
-        GP[Gamepad / DroidJoy] --> IM
+        GP[Gamepad / InputMapper] --> IM
     end
 
     subgraph Aplicação
@@ -112,6 +112,7 @@ flowchart LR
 - **Um único renderer:** o A-Frame gerencia a cena, e o Three.js dele é usado só onde é preciso (órbita, raycasting, enquadramento e liberação de memória).
 - **Entradas desacopladas:** mouse, touch, teclado e gamepad são convertidos pelo `InputManager` em três ações (`rotate`, `zoom` e `select`). O viewer não sabe de onde veio a entrada.
 - **Dados separados da interface:** todo o conteúdo vem do JSON e dos assets.
+- **Módulos por responsabilidade:** `data/`, `input/`, `viewer/`, `ui/` e `utils/` não dependem uns dos outros. O `app.js` só compõe as peças, e elas conversam por callbacks.
 
 Detalhes em [docs/architecture.md](docs/architecture.md).
 
@@ -143,20 +144,19 @@ Acesse **http://localhost:8000**.
 O zoom tem limites: a câmera não entra no carro nem se afasta demais. O gamepad é opcional, e sem ele a aplicação funciona normalmente.
 
 <details>
-<summary><b>Controles via InputMapper ou DroidJoy</b></summary>
+<summary><b>Controle via InputMapper</b></summary>
 
 <br>
 
-Não há integração proprietária. Esses programas expõem um controle XInput (Xbox 360) no Windows, e o navegador o lê pela Gamepad API como qualquer controle Xbox:
+O projeto usa o **InputMapper** para simular o joystick. Não há integração proprietária: o InputMapper expõe um controle XInput (Xbox 360) no Windows, e o navegador o lê pela Gamepad API como qualquer controle Xbox:
 
 ```text
-DualShock / DualSense → InputMapper ─┐
-Android → DroidJoy → DroidJoy Server ┴→ XInput → Windows → Navegador → Gamepad API → gamepad-input.js
+Controle (ex.: DualShock / DualSense) → InputMapper → XInput → Windows → Navegador → Gamepad API → gamepad-input.js
 ```
 
-No InputMapper, mantenha a emulação de **Xbox 360 Controller** ativa, para que o navegador use o mapeamento padrão (setas = botões 14 e 15).
-
-No Chrome e no Edge, o controle só é reconhecido depois que um botão é pressionado com a página em foco. O status aparece no canto inferior direito.
+1. No InputMapper, mantenha a emulação de **Xbox 360 Controller** ativa, para que o navegador use o mapeamento padrão (setas = botões 14 e 15).
+2. No Chrome e no Edge, o controle só é reconhecido depois que um botão é pressionado com a página em foco.
+3. O status aparece no canto inferior direito ("Controle conectado").
 
 </details>
 
@@ -167,15 +167,23 @@ showroom-3d/
 ├── index.html                 # Layout e cena A-Frame
 ├── css/main.css               # Tema dark e layout responsivo
 ├── js/
-│   ├── app.js                 # Inicialização, carregamento do catálogo e estados de erro
-│   ├── viewer.js              # Visualizador: carga/descarte, enquadramento, órbita, vistas, raycast
-│   ├── placeholder-car.js     # Carro provisório enquanto o GLB não existe
-│   ├── catalog.js             # Lista de veículos
-│   ├── vehicle-info.js        # Ficha técnica e preço
-│   ├── gallery.js             # Miniaturas de vistas
-│   ├── input-manager.js       # Normalização das entradas
-│   ├── mouse-input.js · touch-input.js · keyboard-input.js · gamepad-input.js
-│   └── format.js · toast.js   # Utilitários
+│   ├── app.js                       # Ponto de entrada: compõe os módulos
+│   ├── data/
+│   │   └── vehicle-repository.js    # Carrega o catálogo
+│   ├── input/
+│   │   ├── input-manager.js         # Normaliza entradas em rotate / zoom / select
+│   │   └── mouse · touch · keyboard · gamepad-input.js
+│   ├── viewer/
+│   │   ├── vehicle-viewer.js        # Orquestra carga/descarte, estados e raycasting
+│   │   ├── orbit-camera.js          # Órbita, limites de zoom, vistas e suavização
+│   │   ├── model-framing.js         # Peças soltas, escala e centralização do modelo
+│   │   ├── studio-environment.js    # Reflexos de estúdio (PMREM)
+│   │   ├── placeholder-car.js       # Carro provisório enquanto o GLB não existe
+│   │   └── three-utils.js           # Liberação de memória e utilitários
+│   ├── ui/
+│   │   └── catalog · vehicle-info · gallery · gamepad-status · toast.js
+│   └── utils/
+│       └── format.js                # Formatação pt-BR (preço, km)
 ├── data/vehicles.json         # Catálogo, único lugar com dados dos veículos
 ├── assets/
 │   ├── models/                # GLBs
@@ -220,7 +228,7 @@ A ordem no JSON é a ordem do catálogo, e o primeiro item abre selecionado.
 
 Enquanto o arquivo de `model3d` não existir, o viewer exibe um **carro provisório** gerado com primitivas e um aviso discreto. Para usar o modelo real, exporte do Blender como `.glb` e salve no caminho indicado. Ele é detectado automaticamente, sem mudar código.
 
-O guia [docs/blender-export.md](docs/blender-export.md) cobre escala, orientação, nomes de peças, orçamento de polígonos e os problemas mais comuns em modelos baixados da internet.
+O [**Guia de tratamento de modelos 3D**](docs/3d-models-guide.md) cobre o processo completo: escolha e licença, limpeza no Blender, escala e orientação, nomes, materiais, otimização, exportação, onde salvar, registro no catálogo e testes, com checklist final. As opções da janela de exportação estão em [docs/blender-export.md](docs/blender-export.md).
 
 ## Deploy
 

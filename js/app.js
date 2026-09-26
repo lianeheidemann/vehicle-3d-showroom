@@ -1,77 +1,76 @@
-import { createCatalog } from './catalog.js';
-import { createGallery } from './gallery.js';
-import { attachGamepadInput } from './gamepad-input.js';
-import { InputManager } from './input-manager.js';
-import { attachKeyboardInput } from './keyboard-input.js';
-import { attachMouseInput } from './mouse-input.js';
-import { showToast } from './toast.js';
-import { attachTouchInput } from './touch-input.js';
-import { createVehicleInfo } from './vehicle-info.js';
-import { VehicleViewer } from './viewer.js';
-
-const DATA_URL = 'data/vehicles.json';
+/**
+ * Ponto de entrada: cria os módulos, conecta uns aos outros e carrega o catálogo.
+ * Nenhuma regra de negócio mora aqui — só a composição.
+ */
+import { loadVehicles } from './data/vehicle-repository.js';
+import { attachGamepadInput } from './input/gamepad-input.js';
+import { InputManager } from './input/input-manager.js';
+import { attachKeyboardInput } from './input/keyboard-input.js';
+import { attachMouseInput } from './input/mouse-input.js';
+import { attachTouchInput } from './input/touch-input.js';
+import { createCatalog } from './ui/catalog.js';
+import { createGallery } from './ui/gallery.js';
+import { renderGamepadStatus } from './ui/gamepad-status.js';
+import { showToast } from './ui/toast.js';
+import { createVehicleInfo } from './ui/vehicle-info.js';
+import { VehicleViewer } from './viewer/vehicle-viewer.js';
 
 const ACTION_MESSAGES = {
   interest: 'Demonstração: o contato com a loja será habilitado em uma próxima versão.',
   visit: 'Demonstração: o agendamento de visitas será habilitado em uma próxima versão.',
 };
-
 const VIEW_UNAVAILABLE_MESSAGE = 'A vista interior será habilitada em uma próxima versão.';
 
-async function loadVehicles() {
-  const response = await fetch(DATA_URL);
-  if (!response.ok) throw new Error(`HTTP ${response.status} ao buscar ${DATA_URL}`);
-  const vehicles = await response.json();
-  if (!Array.isArray(vehicles) || vehicles.length === 0) throw new Error(`${DATA_URL} não contém uma lista de veículos`);
-  return vehicles;
+const byId = (id) => document.getElementById(id);
+
+function createViewer({ onVehicleClick }) {
+  return new VehicleViewer({
+    sceneEl: byId('scene'),
+    rootEl: byId('vehicle-root'),
+    cameraEl: byId('camera'),
+    ringEl: byId('platform-ring'),
+    overlayEl: byId('viewer-overlay'),
+    noticeEl: byId('viewer-notice'),
+    onVehicleClick,
+  });
 }
 
-function renderGamepadStatus(el, { supported, connected, name }) {
-  el.dataset.state = !supported ? 'unsupported' : connected ? 'connected' : 'idle';
-  el.textContent = !supported
-    ? 'Gamepad indisponível neste navegador'
-    : connected
-      ? `Controle conectado${name ? ` · ${name}` : ''}`
-      : 'Nenhum controle conectado';
-  el.title = el.textContent;
+/** Liga todas as fontes de entrada ao mesmo InputManager. */
+function attachInputs(input) {
+  const stageEl = byId('viewer-stage');
+  const gamepadStatusEl = byId('gamepad-status');
+  attachMouseInput(stageEl, input);
+  attachTouchInput(stageEl, input);
+  attachKeyboardInput(window, input);
+  attachGamepadInput(input, { onStatusChange: (status) => renderGamepadStatus(gamepadStatusEl, status) });
+}
+
+function catalogErrorMessage() {
+  const hint = location.protocol === 'file:'
+    ? 'Abra o projeto por um servidor local (veja o README).'
+    : 'Tente recarregar a página.';
+  return `Não foi possível carregar os veículos. ${hint}`;
 }
 
 async function main() {
-  const stageEl = document.getElementById('viewer-stage');
   const input = new InputManager();
 
-  const info = createVehicleInfo(document.getElementById('vehicle-info'), {
+  const info = createVehicleInfo(byId('vehicle-info'), {
     onAction: (action) => showToast(ACTION_MESSAGES[action] ?? 'Função disponível em breve.'),
   });
-  const gallery = createGallery(document.getElementById('gallery'), {
+  const viewer = createViewer({ onVehicleClick: () => info.highlight() });
+  const gallery = createGallery(byId('gallery'), {
     onSelect: (view) => {
       if (viewer.setView(view)) return true;
       showToast(VIEW_UNAVAILABLE_MESSAGE);
       return false;
     },
   });
+  const catalog = createCatalog(byId('vehicle-list'), byId('catalog-count'), { onSelect: selectVehicle });
 
-  const viewer = new VehicleViewer({
-    sceneEl: document.getElementById('scene'),
-    rootEl: document.getElementById('vehicle-root'),
-    cameraEl: document.getElementById('camera'),
-    ringEl: document.getElementById('platform-ring'),
-    overlayEl: document.getElementById('viewer-overlay'),
-    noticeEl: document.getElementById('viewer-notice'),
-    onVehicleClick: () => info.highlight(),
-  });
   viewer.bindInput(input);
   input.on('rotate', () => gallery.clearActive());
-
-  attachMouseInput(stageEl, input);
-  attachTouchInput(stageEl, input);
-  attachKeyboardInput(window, input);
-  const gamepadStatusEl = document.getElementById('gamepad-status');
-  attachGamepadInput(input, { onStatusChange: (status) => renderGamepadStatus(gamepadStatusEl, status) });
-
-  const catalog = createCatalog(document.getElementById('vehicle-list'), document.getElementById('catalog-count'), {
-    onSelect: selectVehicle,
-  });
+  attachInputs(input);
 
   function selectVehicle(vehicle) {
     catalog.setActive(vehicle.id);
@@ -85,10 +84,7 @@ async function main() {
     vehicles = await loadVehicles();
   } catch (error) {
     console.error('[app] Falha ao carregar o catálogo:', error);
-    const hint = location.protocol === 'file:'
-      ? 'Abra o projeto por um servidor local (veja o README).'
-      : 'Tente recarregar a página.';
-    catalog.showError(`Não foi possível carregar os veículos. ${hint}`);
+    catalog.showError(catalogErrorMessage());
     info.showEmpty('Catálogo indisponível no momento.');
     gallery.render([]);
     viewer.showMessage('Nenhum veículo para exibir.');

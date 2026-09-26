@@ -1,4 +1,4 @@
-import { formatMileage, formatPrice } from './format.js';
+import { formatMileage, formatPrice } from '../utils/format.js';
 
 /** Lista lateral de veículos. Só exibe thumbnails — os modelos 3D são carregados sob demanda. */
 export function createCatalog(listEl, countEl, { onSelect }) {
