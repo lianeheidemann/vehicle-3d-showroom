@@ -3,9 +3,9 @@
 # Vehicle 3D Showroom
 
 <p>
-  <a href="https://lianeheidemann.github.io/vehicle-3d-showroom/"><img height="22" alt="Live Demo" src="https://img.shields.io/badge/Live_Demo-Abrir_showroom-3b82f6?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0d1117"></a>&nbsp;
-  <a href="https://github.com/lianeheidemann/vehicle-3d-showroom/actions/workflows/pages.yml"><img height="22" alt="Deploy" src="https://img.shields.io/badge/Deploy-GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white&labelColor=0d1117"></a>&nbsp;
-  <img height="22" alt="Controle Xbox" src="https://img.shields.io/badge/Controle_Xbox-compat%C3%ADvel-3b82f6?style=for-the-badge&labelColor=0d1117&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTcgN2gxMGE1IDUgMCAwIDEgNC45IDRsLjkgNC42YTIuNiAyLjYgMCAwIDEtNC41IDIuM0wxNi40IDE2SDcuNmwtMS45IDEuOWEyLjYgMi42IDAgMCAxLTQuNS0yLjNsLjktNC42QTUgNSAwIDAgMSA3IDd6bTAgM3YxLjVINS41VjEzSDd2MS41aDEuNVYxM0gxMHYtMS41SDguNVYxMHptOS41IDBhMSAxIDAgMSAwIDAgMiAxIDEgMCAwIDAgMC0yem0tMiAyYTEgMSAwIDEgMCAwIDIgMSAxIDAgMCAwIDAtMnoiLz48L3N2Zz4%3D">
+  <a href="https://lianeheidemann.github.io/vehicle-3d-showroom/"><img height="22" alt="Live Demo" src="https://img.shields.io/badge/Live_Demo-Abrir_showroom-107C10?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0d1117"></a>&nbsp;
+  <a href="https://github.com/lianeheidemann/vehicle-3d-showroom/actions/workflows/pages.yml"><img height="22" alt="Deploy" src="https://img.shields.io/badge/Deploy-GitHub_Actions-138A18?style=for-the-badge&logo=githubactions&logoColor=white&labelColor=0d1117"></a>&nbsp;
+  <img height="22" alt="Controle Xbox" src="https://img.shields.io/badge/Controle_Xbox-compat%C3%ADvel-0F7A0F?style=for-the-badge&labelColor=0d1117&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTcgN2gxMGE1IDUgMCAwIDEgNC45IDRsLjkgNC42YTIuNiAyLjYgMCAwIDEtNC41IDIuM0wxNi40IDE2SDcuNmwtMS45IDEuOWEyLjYgMi42IDAgMCAxLTQuNS0yLjNsLjktNC42QTUgNSAwIDAgMSA3IDd6bTAgM3YxLjVINS41VjEzSDd2MS41aDEuNVYxM0gxMHYtMS41SDguNVYxMHptOS41IDBhMSAxIDAgMSAwIDAgMiAxIDEgMCAwIDAgMC0yem0tMiAyYTEgMSAwIDEgMCAwIDIgMSAxIDAgMCAwIDAtMnoiLz48L3N2Zz4%3D">
 </p>
 
 <p>
